@@ -14,6 +14,9 @@
 		103F557E29D49F6300212C6D /* DrugExam_2020Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F557D29D49F6300212C6D /* DrugExam_2020Tests.swift */; };
 		103F558829D49F6300212C6D /* DrugExam_2020UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F558729D49F6300212C6D /* DrugExam_2020UITests.swift */; };
 		103F558A29D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F558929D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift */; };
+		103F559829D49F8D00212C6D /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F559729D49F8D00212C6D /* LogInView.swift */; };
+		103F559929D49F8D00212C6D /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F559729D49F8D00212C6D /* LogInView.swift */; };
+		103F559A29D49F8D00212C6D /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F559729D49F8D00212C6D /* LogInView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,7 @@
 		103F558329D49F6300212C6D /* DrugExam 2020UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DrugExam 2020UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		103F558729D49F6300212C6D /* DrugExam_2020UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugExam_2020UITests.swift; sourceTree = "<group>"; };
 		103F558929D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugExam_2020UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		103F559729D49F8D00212C6D /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		103F556B29D49F6200212C6D /* DrugExam 2020 */ = {
 			isa = PBXGroup;
 			children = (
+				103F559629D49F7200212C6D /* Screens */,
 				103F556C29D49F6200212C6D /* DrugExam_2020App.swift */,
 				103F556E29D49F6200212C6D /* ContentView.swift */,
 				103F557029D49F6300212C6D /* Assets.xcassets */,
@@ -125,6 +130,14 @@
 				103F558929D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift */,
 			);
 			path = "DrugExam 2020UITests";
+			sourceTree = "<group>";
+		};
+		103F559629D49F7200212C6D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				103F559729D49F8D00212C6D /* LogInView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				103F559829D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F556F29D49F6200212C6D /* ContentView.swift in Sources */,
 				103F556D29D49F6200212C6D /* DrugExam_2020App.swift in Sources */,
 			);
@@ -266,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				103F559929D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F557E29D49F6300212C6D /* DrugExam_2020Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				103F559A29D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F558829D49F6300212C6D /* DrugExam_2020UITests.swift in Sources */,
 				103F558A29D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift in Sources */,
 			);
