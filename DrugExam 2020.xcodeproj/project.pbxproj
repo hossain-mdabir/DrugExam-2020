@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		103F556D29D49F6200212C6D /* DrugExam_2020App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F556C29D49F6200212C6D /* DrugExam_2020App.swift */; };
+		103F556F29D49F6200212C6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F556E29D49F6200212C6D /* ContentView.swift */; };
+		103F557129D49F6300212C6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 103F557029D49F6300212C6D /* Assets.xcassets */; };
+		103F557429D49F6300212C6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 103F557329D49F6300212C6D /* Preview Assets.xcassets */; };
+		103F557E29D49F6300212C6D /* DrugExam_2020Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F557D29D49F6300212C6D /* DrugExam_2020Tests.swift */; };
+		103F558829D49F6300212C6D /* DrugExam_2020UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F558729D49F6300212C6D /* DrugExam_2020UITests.swift */; };
+		103F558A29D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F558929D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		103F557A29D49F6300212C6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 103F556129D49F6200212C6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 103F556829D49F6200212C6D;
+			remoteInfo = "DrugExam 2020";
+		};
+		103F558429D49F6300212C6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 103F556129D49F6200212C6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 103F556829D49F6200212C6D;
+			remoteInfo = "DrugExam 2020";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		103F556929D49F6200212C6D /* DrugExam 2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DrugExam 2020.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		103F556C29D49F6200212C6D /* DrugExam_2020App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugExam_2020App.swift; sourceTree = "<group>"; };
+		103F556E29D49F6200212C6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		103F557029D49F6300212C6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		103F557329D49F6300212C6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		103F557929D49F6300212C6D /* DrugExam 2020Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DrugExam 2020Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		103F557D29D49F6300212C6D /* DrugExam_2020Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugExam_2020Tests.swift; sourceTree = "<group>"; };
+		103F558329D49F6300212C6D /* DrugExam 2020UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DrugExam 2020UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		103F558729D49F6300212C6D /* DrugExam_2020UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugExam_2020UITests.swift; sourceTree = "<group>"; };
+		103F558929D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugExam_2020UITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		103F556629D49F6200212C6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		103F557629D49F6300212C6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		103F558029D49F6300212C6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		103F556029D49F6200212C6D = {
+			isa = PBXGroup;
+			children = (
+				103F556B29D49F6200212C6D /* DrugExam 2020 */,
+				103F557C29D49F6300212C6D /* DrugExam 2020Tests */,
+				103F558629D49F6300212C6D /* DrugExam 2020UITests */,
+				103F556A29D49F6200212C6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		103F556A29D49F6200212C6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				103F556929D49F6200212C6D /* DrugExam 2020.app */,
+				103F557929D49F6300212C6D /* DrugExam 2020Tests.xctest */,
+				103F558329D49F6300212C6D /* DrugExam 2020UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		103F556B29D49F6200212C6D /* DrugExam 2020 */ = {
+			isa = PBXGroup;
+			children = (
+				103F556C29D49F6200212C6D /* DrugExam_2020App.swift */,
+				103F556E29D49F6200212C6D /* ContentView.swift */,
+				103F557029D49F6300212C6D /* Assets.xcassets */,
+				103F557229D49F6300212C6D /* Preview Content */,
+			);
+			path = "DrugExam 2020";
+			sourceTree = "<group>";
+		};
+		103F557229D49F6300212C6D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				103F557329D49F6300212C6D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		103F557C29D49F6300212C6D /* DrugExam 2020Tests */ = {
+			isa = PBXGroup;
+			children = (
+				103F557D29D49F6300212C6D /* DrugExam_2020Tests.swift */,
+			);
+			path = "DrugExam 2020Tests";
+			sourceTree = "<group>";
+		};
+		103F558629D49F6300212C6D /* DrugExam 2020UITests */ = {
+			isa = PBXGroup;
+			children = (
+				103F558729D49F6300212C6D /* DrugExam_2020UITests.swift */,
+				103F558929D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift */,
+			);
+			path = "DrugExam 2020UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		103F556829D49F6200212C6D /* DrugExam 2020 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 103F558D29D49F6300212C6D /* Build configuration list for PBXNativeTarget "DrugExam 2020" */;
+			buildPhases = (
+				103F556529D49F6200212C6D /* Sources */,
+				103F556629D49F6200212C6D /* Frameworks */,
+				103F556729D49F6200212C6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DrugExam 2020";
+			productName = "DrugExam 2020";
+			productReference = 103F556929D49F6200212C6D /* DrugExam 2020.app */;
+			productType = "com.apple.product-type.application";
+		};
+		103F557829D49F6300212C6D /* DrugExam 2020Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 103F559029D49F6300212C6D /* Build configuration list for PBXNativeTarget "DrugExam 2020Tests" */;
+			buildPhases = (
+				103F557529D49F6300212C6D /* Sources */,
+				103F557629D49F6300212C6D /* Frameworks */,
+				103F557729D49F6300212C6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				103F557B29D49F6300212C6D /* PBXTargetDependency */,
+			);
+			name = "DrugExam 2020Tests";
+			productName = "DrugExam 2020Tests";
+			productReference = 103F557929D49F6300212C6D /* DrugExam 2020Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		103F558229D49F6300212C6D /* DrugExam 2020UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 103F559329D49F6300212C6D /* Build configuration list for PBXNativeTarget "DrugExam 2020UITests" */;
+			buildPhases = (
+				103F557F29D49F6300212C6D /* Sources */,
+				103F558029D49F6300212C6D /* Frameworks */,
+				103F558129D49F6300212C6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				103F558529D49F6300212C6D /* PBXTargetDependency */,
+			);
+			name = "DrugExam 2020UITests";
+			productName = "DrugExam 2020UITests";
+			productReference = 103F558329D49F6300212C6D /* DrugExam 2020UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		103F556129D49F6200212C6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					103F556829D49F6200212C6D = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					103F557829D49F6300212C6D = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 103F556829D49F6200212C6D;
+					};
+					103F558229D49F6300212C6D = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 103F556829D49F6200212C6D;
+					};
+				};
+			};
+			buildConfigurationList = 103F556429D49F6200212C6D /* Build configuration list for PBXProject "DrugExam 2020" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 103F556029D49F6200212C6D;
+			productRefGroup = 103F556A29D49F6200212C6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				103F556829D49F6200212C6D /* DrugExam 2020 */,
+				103F557829D49F6300212C6D /* DrugExam 2020Tests */,
+				103F558229D49F6300212C6D /* DrugExam 2020UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		103F556729D49F6200212C6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				103F557429D49F6300212C6D /* Preview Assets.xcassets in Resources */,
+				103F557129D49F6300212C6D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		103F557729D49F6300212C6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		103F558129D49F6300212C6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		103F556529D49F6200212C6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				103F556F29D49F6200212C6D /* ContentView.swift in Sources */,
+				103F556D29D49F6200212C6D /* DrugExam_2020App.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		103F557529D49F6300212C6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				103F557E29D49F6300212C6D /* DrugExam_2020Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		103F557F29D49F6300212C6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				103F558829D49F6300212C6D /* DrugExam_2020UITests.swift in Sources */,
+				103F558A29D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		103F557B29D49F6300212C6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 103F556829D49F6200212C6D /* DrugExam 2020 */;
+			targetProxy = 103F557A29D49F6300212C6D /* PBXContainerItemProxy */;
+		};
+		103F558529D49F6300212C6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 103F556829D49F6200212C6D /* DrugExam 2020 */;
+			targetProxy = 103F558429D49F6300212C6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		103F558B29D49F6300212C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		103F558C29D49F6300212C6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		103F558E29D49F6300212C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DrugExam 2020/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mdabirhossain.DrugExam-2020";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		103F558F29D49F6300212C6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DrugExam 2020/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mdabirhossain.DrugExam-2020";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		103F559129D49F6300212C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mdabirhossain.DrugExam-2020Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DrugExam 2020.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DrugExam 2020";
+			};
+			name = Debug;
+		};
+		103F559229D49F6300212C6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mdabirhossain.DrugExam-2020Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DrugExam 2020.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DrugExam 2020";
+			};
+			name = Release;
+		};
+		103F559429D49F6300212C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mdabirhossain.DrugExam-2020UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "DrugExam 2020";
+			};
+			name = Debug;
+		};
+		103F559529D49F6300212C6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mdabirhossain.DrugExam-2020UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "DrugExam 2020";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		103F556429D49F6200212C6D /* Build configuration list for PBXProject "DrugExam 2020" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				103F558B29D49F6300212C6D /* Debug */,
+				103F558C29D49F6300212C6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		103F558D29D49F6300212C6D /* Build configuration list for PBXNativeTarget "DrugExam 2020" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				103F558E29D49F6300212C6D /* Debug */,
+				103F558F29D49F6300212C6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		103F559029D49F6300212C6D /* Build configuration list for PBXNativeTarget "DrugExam 2020Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				103F559129D49F6300212C6D /* Debug */,
+				103F559229D49F6300212C6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		103F559329D49F6300212C6D /* Build configuration list for PBXNativeTarget "DrugExam 2020UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				103F559429D49F6300212C6D /* Debug */,
+				103F559529D49F6300212C6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 103F556129D49F6200212C6D /* Project object */;
+}
