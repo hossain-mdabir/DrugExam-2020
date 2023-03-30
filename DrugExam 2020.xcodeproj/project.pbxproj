@@ -17,6 +17,15 @@
 		103F559829D49F8D00212C6D /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F559729D49F8D00212C6D /* LogInView.swift */; };
 		103F559929D49F8D00212C6D /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F559729D49F8D00212C6D /* LogInView.swift */; };
 		103F559A29D49F8D00212C6D /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F559729D49F8D00212C6D /* LogInView.swift */; };
+		1089A5CB29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5C929D58B11002CD74F /* FloatingSecureTextField.swift */; };
+		1089A5CC29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5C929D58B11002CD74F /* FloatingSecureTextField.swift */; };
+		1089A5CD29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5C929D58B11002CD74F /* FloatingSecureTextField.swift */; };
+		1089A5CE29D58B11002CD74F /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5CA29D58B11002CD74F /* FloatingTextField.swift */; };
+		1089A5CF29D58B11002CD74F /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5CA29D58B11002CD74F /* FloatingTextField.swift */; };
+		1089A5D029D58B11002CD74F /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5CA29D58B11002CD74F /* FloatingTextField.swift */; };
+		1089A5D229D59074002CD74F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5D129D59074002CD74F /* DashboardView.swift */; };
+		1089A5D329D59074002CD74F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5D129D59074002CD74F /* DashboardView.swift */; };
+		1089A5D429D59074002CD74F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5D129D59074002CD74F /* DashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +57,9 @@
 		103F558729D49F6300212C6D /* DrugExam_2020UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugExam_2020UITests.swift; sourceTree = "<group>"; };
 		103F558929D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugExam_2020UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		103F559729D49F8D00212C6D /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		1089A5C929D58B11002CD74F /* FloatingSecureTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingSecureTextField.swift; sourceTree = "<group>"; };
+		1089A5CA29D58B11002CD74F /* FloatingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
+		1089A5D129D59074002CD74F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +110,7 @@
 		103F556B29D49F6200212C6D /* DrugExam 2020 */ = {
 			isa = PBXGroup;
 			children = (
+				1089A5C729D58A20002CD74F /* Views */,
 				103F559629D49F7200212C6D /* Screens */,
 				103F556C29D49F6200212C6D /* DrugExam_2020App.swift */,
 				103F556E29D49F6200212C6D /* ContentView.swift */,
@@ -136,8 +149,26 @@
 			isa = PBXGroup;
 			children = (
 				103F559729D49F8D00212C6D /* LogInView.swift */,
+				1089A5D129D59074002CD74F /* DashboardView.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		1089A5C729D58A20002CD74F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1089A5C829D58B11002CD74F /* InputFields */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1089A5C829D58B11002CD74F /* InputFields */ = {
+			isa = PBXGroup;
+			children = (
+				1089A5C929D58B11002CD74F /* FloatingSecureTextField.swift */,
+				1089A5CA29D58B11002CD74F /* FloatingTextField.swift */,
+			);
+			path = InputFields;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +301,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1089A5CB29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
+				1089A5D229D59074002CD74F /* DashboardView.swift in Sources */,
 				103F559829D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F556F29D49F6200212C6D /* ContentView.swift in Sources */,
+				1089A5CE29D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F556D29D49F6200212C6D /* DrugExam_2020App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,8 +314,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1089A5CC29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
 				103F559929D49F8D00212C6D /* LogInView.swift in Sources */,
+				1089A5D329D59074002CD74F /* DashboardView.swift in Sources */,
 				103F557E29D49F6300212C6D /* DrugExam_2020Tests.swift in Sources */,
+				1089A5CF29D58B11002CD74F /* FloatingTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,8 +326,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1089A5CD29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
+				1089A5D429D59074002CD74F /* DashboardView.swift in Sources */,
 				103F559A29D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F558829D49F6300212C6D /* DrugExam_2020UITests.swift in Sources */,
+				1089A5D029D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F558A29D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

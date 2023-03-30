@@ -11,7 +11,9 @@ import SwiftUI
 struct DrugExam_2020App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                LogInView()
+            }
         }
     }
 }
