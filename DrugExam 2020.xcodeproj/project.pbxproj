@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10153C2429D5CC1D000EEB8D /* ExamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2329D5CC1D000EEB8D /* ExamResultView.swift */; };
+		10153C2529D5CC1D000EEB8D /* ExamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2329D5CC1D000EEB8D /* ExamResultView.swift */; };
+		10153C2629D5CC1D000EEB8D /* ExamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2329D5CC1D000EEB8D /* ExamResultView.swift */; };
 		103F556D29D49F6200212C6D /* DrugExam_2020App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F556C29D49F6200212C6D /* DrugExam_2020App.swift */; };
 		103F556F29D49F6200212C6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F556E29D49F6200212C6D /* ContentView.swift */; };
 		103F557129D49F6300212C6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 103F557029D49F6300212C6D /* Assets.xcassets */; };
@@ -46,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10153C2329D5CC1D000EEB8D /* ExamResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResultView.swift; sourceTree = "<group>"; };
 		103F556929D49F6200212C6D /* DrugExam 2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DrugExam 2020.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		103F556C29D49F6200212C6D /* DrugExam_2020App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugExam_2020App.swift; sourceTree = "<group>"; };
 		103F556E29D49F6200212C6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			children = (
 				103F559729D49F8D00212C6D /* LogInView.swift */,
 				1089A5D129D59074002CD74F /* DashboardView.swift */,
+				10153C2329D5CC1D000EEB8D /* ExamResultView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1089A5CB29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
+				10153C2429D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
 				1089A5D229D59074002CD74F /* DashboardView.swift in Sources */,
 				103F559829D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F556F29D49F6200212C6D /* ContentView.swift in Sources */,
@@ -316,6 +322,7 @@
 			files = (
 				1089A5CC29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
 				103F559929D49F8D00212C6D /* LogInView.swift in Sources */,
+				10153C2529D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
 				1089A5D329D59074002CD74F /* DashboardView.swift in Sources */,
 				103F557E29D49F6300212C6D /* DrugExam_2020Tests.swift in Sources */,
 				1089A5CF29D58B11002CD74F /* FloatingTextField.swift in Sources */,
@@ -327,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1089A5CD29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
+				10153C2629D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
 				1089A5D429D59074002CD74F /* DashboardView.swift in Sources */,
 				103F559A29D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F558829D49F6300212C6D /* DrugExam_2020UITests.swift in Sources */,

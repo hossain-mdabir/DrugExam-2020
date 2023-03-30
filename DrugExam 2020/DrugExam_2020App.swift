@@ -14,6 +14,7 @@ struct DrugExam_2020App: App {
             NavigationView {
                 LogInView()
             }
+            .navigationViewStyle(.stack)
         }
     }
 }

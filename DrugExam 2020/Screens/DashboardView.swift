@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DashboardView: View {
+    
+    
+    
     var body: some View {
         ZStack {
             VStack {
@@ -69,20 +72,22 @@ struct DashboardView: View {
                     .background(Color.gray.opacity(0.3))
                     .cornerRadius(10)
                     
-                    VStack {
-                        Image("exam")
-                            .resizable()
-                            .foregroundColor(Color("NavBar"))
-                            .frame(width: 70, height: 70, alignment: .center)
-                        
-                        Text("EXAM RESULT")
-                            .font(.title3.weight(.bold))
-                            .foregroundColor(Color.primary)
-                            .padding(.vertical)
+                    NavigationLink(destination: ExamResultView()) {
+                        VStack {
+                            Image("exam")
+                                .resizable()
+                                .foregroundColor(Color("NavBar"))
+                                .frame(width: 70, height: 70, alignment: .center)
+                            
+                            Text("EXAM RESULT")
+                                .font(.title3.weight(.bold))
+                                .foregroundColor(Color.primary)
+                                .padding(.vertical)
+                        }
+                        .frame(maxWidth: .infinity, minHeight: 200)
+                        .background(Color.gray.opacity(0.3))
+                        .cornerRadius(10)
                     }
-                    .frame(maxWidth: .infinity, minHeight: 200)
-                    .background(Color.gray.opacity(0.3))
-                    .cornerRadius(10)
                 }
                 .padding(.horizontal, 10)
                 
