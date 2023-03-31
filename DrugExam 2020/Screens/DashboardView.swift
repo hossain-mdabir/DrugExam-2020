@@ -53,24 +53,26 @@ struct DashboardView: View {
                 
                 
                 HStack(spacing: 10) {
-                    VStack {
-                        ZStack {
-                            Circle()
-                                .stroke(Color("NavBar"), lineWidth: 10)
-                                .frame(width: 70, height: 70, alignment: .center)
-                            Text("START")
-                                .font(.system(size: 16, weight: .heavy))
-                                .foregroundColor(Color("NavBar"))
+                    NavigationLink(destination: ExamView()) {
+                        VStack {
+                            ZStack {
+                                Circle()
+                                    .stroke(Color("NavBar"), lineWidth: 10)
+                                    .frame(width: 70, height: 70, alignment: .center)
+                                Text("START")
+                                    .font(.system(size: 16, weight: .heavy))
+                                    .foregroundColor(Color("NavBar"))
+                            }
+                            
+                            Text("START EXAM")
+                                .font(.title3.weight(.bold))
+                                .foregroundColor(Color.primary)
+                                .padding(.vertical)
                         }
-                        
-                        Text("START EXAM")
-                            .font(.title3.weight(.bold))
-                            .foregroundColor(Color.primary)
-                            .padding(.vertical)
+                        .frame(maxWidth: .infinity, minHeight: 200)
+                        .background(Color.gray.opacity(0.3))
+                        .cornerRadius(10)
                     }
-                    .frame(maxWidth: .infinity, minHeight: 200)
-                    .background(Color.gray.opacity(0.3))
-                    .cornerRadius(10)
                     
                     NavigationLink(destination: ExamResultView()) {
                         VStack {

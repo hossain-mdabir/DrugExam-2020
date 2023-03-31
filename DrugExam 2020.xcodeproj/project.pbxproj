@@ -10,6 +10,12 @@
 		10153C2429D5CC1D000EEB8D /* ExamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2329D5CC1D000EEB8D /* ExamResultView.swift */; };
 		10153C2529D5CC1D000EEB8D /* ExamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2329D5CC1D000EEB8D /* ExamResultView.swift */; };
 		10153C2629D5CC1D000EEB8D /* ExamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2329D5CC1D000EEB8D /* ExamResultView.swift */; };
+		10153C2829D69B7F000EEB8D /* ExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2729D69B7F000EEB8D /* ExamView.swift */; };
+		10153C2929D69B7F000EEB8D /* ExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2729D69B7F000EEB8D /* ExamView.swift */; };
+		10153C2A29D69B7F000EEB8D /* ExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2729D69B7F000EEB8D /* ExamView.swift */; };
+		10153C2D29D6DD3E000EEB8D /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2C29D6DD3E000EEB8D /* DropdownView.swift */; };
+		10153C2E29D6DD3E000EEB8D /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2C29D6DD3E000EEB8D /* DropdownView.swift */; };
+		10153C2F29D6DD3E000EEB8D /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10153C2C29D6DD3E000EEB8D /* DropdownView.swift */; };
 		103F556D29D49F6200212C6D /* DrugExam_2020App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F556C29D49F6200212C6D /* DrugExam_2020App.swift */; };
 		103F556F29D49F6200212C6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F556E29D49F6200212C6D /* ContentView.swift */; };
 		103F557129D49F6300212C6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 103F557029D49F6300212C6D /* Assets.xcassets */; };
@@ -50,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		10153C2329D5CC1D000EEB8D /* ExamResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResultView.swift; sourceTree = "<group>"; };
+		10153C2729D69B7F000EEB8D /* ExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamView.swift; sourceTree = "<group>"; };
+		10153C2C29D6DD3E000EEB8D /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
 		103F556929D49F6200212C6D /* DrugExam 2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DrugExam 2020.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		103F556C29D49F6200212C6D /* DrugExam_2020App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugExam_2020App.swift; sourceTree = "<group>"; };
 		103F556E29D49F6200212C6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10153C2B29D6DD12000EEB8D /* Dropdown */ = {
+			isa = PBXGroup;
+			children = (
+				10153C2C29D6DD3E000EEB8D /* DropdownView.swift */,
+			);
+			path = Dropdown;
+			sourceTree = "<group>";
+		};
 		103F556029D49F6200212C6D = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +171,7 @@
 				103F559729D49F8D00212C6D /* LogInView.swift */,
 				1089A5D129D59074002CD74F /* DashboardView.swift */,
 				10153C2329D5CC1D000EEB8D /* ExamResultView.swift */,
+				10153C2729D69B7F000EEB8D /* ExamView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -162,6 +179,7 @@
 		1089A5C729D58A20002CD74F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				10153C2B29D6DD12000EEB8D /* Dropdown */,
 				1089A5C829D58B11002CD74F /* InputFields */,
 			);
 			path = Views;
@@ -311,8 +329,10 @@
 				1089A5D229D59074002CD74F /* DashboardView.swift in Sources */,
 				103F559829D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F556F29D49F6200212C6D /* ContentView.swift in Sources */,
+				10153C2D29D6DD3E000EEB8D /* DropdownView.swift in Sources */,
 				1089A5CE29D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F556D29D49F6200212C6D /* DrugExam_2020App.swift in Sources */,
+				10153C2829D69B7F000EEB8D /* ExamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,10 +340,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10153C2929D69B7F000EEB8D /* ExamView.swift in Sources */,
 				1089A5CC29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
 				103F559929D49F8D00212C6D /* LogInView.swift in Sources */,
 				10153C2529D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
 				1089A5D329D59074002CD74F /* DashboardView.swift in Sources */,
+				10153C2E29D6DD3E000EEB8D /* DropdownView.swift in Sources */,
 				103F557E29D49F6300212C6D /* DrugExam_2020Tests.swift in Sources */,
 				1089A5CF29D58B11002CD74F /* FloatingTextField.swift in Sources */,
 			);
@@ -338,8 +360,10 @@
 				1089A5D429D59074002CD74F /* DashboardView.swift in Sources */,
 				103F559A29D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F558829D49F6300212C6D /* DrugExam_2020UITests.swift in Sources */,
+				10153C2F29D6DD3E000EEB8D /* DropdownView.swift in Sources */,
 				1089A5D029D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F558A29D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift in Sources */,
+				10153C2A29D69B7F000EEB8D /* ExamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
