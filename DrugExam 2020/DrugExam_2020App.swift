@@ -12,7 +12,7 @@ struct DrugExam_2020App: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ExamView()
+                LogInView()
             }
             .navigationViewStyle(.stack)
         }
