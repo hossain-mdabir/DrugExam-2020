@@ -9,19 +9,29 @@ import SwiftUI
 
 struct ExamResultView: View {
     
+    // MARK: - PROPERTY
+    
+    // Dismiss view
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State private var width = UIScreen.main.bounds.width
     
     var body: some View {
         ZStack {
             VStack {
                 HStack {
+                    Button(action: {
+                        self.mode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "chevron.left")
+                            .font(.title3.weight(.bold))
+                            .padding(.horizontal, 5)
+                    })
                     Text("Previous Exam Info of User:")
                         .font(.title2)
-                        .padding(.leading, 10)
-                        .foregroundColor(Color.white)
                         .frame(maxWidth: .infinity, minHeight: 60, alignment: .leading)
-                        .background(Color.red)
                 }
+                .foregroundColor(Color.white)
+                .background(Color.red)
                 .padding(.top, 1)
                 
                 ForEach(0...1, id: \.self) { _ in

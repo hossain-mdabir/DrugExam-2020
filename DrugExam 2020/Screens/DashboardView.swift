@@ -97,7 +97,7 @@ struct DashboardView: View {
                     HStack {
                         Text("Instruction")
                             .font(.title.weight(.bold))
-                        .foregroundColor(Color.red)
+                        .foregroundColor(Color("NavBar"))
                         .padding(.leading)
                         Spacer()
                     }

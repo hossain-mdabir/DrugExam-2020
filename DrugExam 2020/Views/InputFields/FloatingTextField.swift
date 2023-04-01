@@ -18,8 +18,8 @@ struct FloatingTextField: View {
             Text("\(title)")
                 .padding(.leading, 10)
                 .font(.title3)
-                .fontWeight(.semibold)
-                .foregroundColor(text.isEmpty ? Color(.gray).opacity(0.5) : .gray)
+                .fontWeight(.light)
+                .foregroundColor(text.isEmpty ? Color(.gray).opacity(0.5) : .red)
                 .offset(y: text.isEmpty ? 0 : -30)
                 .scaleEffect(text.isEmpty ? 1 : 0.8, anchor: .leading)
             

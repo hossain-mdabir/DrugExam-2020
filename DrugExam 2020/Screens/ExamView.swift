@@ -8,15 +8,28 @@
 import SwiftUI
 
 struct ExamView: View {
+    
+    // MARK: - PROPERTY
+    // Dismiss view
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     var body: some View {
         VStack {
             VStack {
                 HStack {
+                    Button(action: {
+                        self.mode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "chevron.left")
+                            .font(.title3.weight(.bold))
+                            .foregroundColor(Color.white)
+                            .padding(.horizontal, 5)
+                    })
                     Text("0h 37m 46s")
                         .font(.title2.weight(.bold))
                         .foregroundColor(Color.white)
-                        .frame(maxWidth: .infinity, minHeight: 60)
-                    
+                        .frame(minHeight: 60)
+                    Spacer()
                     Button(action: {
                         
                     }, label: {
@@ -99,40 +112,13 @@ struct ExamView: View {
             .background(Color("NavBar"))
             .padding(.top, 1)
             
-            
-            
-            let isOpen = false
-            let isStar = false
-            DropdownView(isOpen: isOpen, isStar: isStar)
-            
-            let isOpen2 = false
-            let isStar2 = false
-            DropdownView(isOpen: isOpen2, isStar: isStar2)
-            
-            
-            DisclosureGroup("Q1. What is Silofast?") {
-                VStack(alignment: .leading) {
-                    Text("A . Preparation of Dutasteride")
-                    Text("B . Preparation of Tamsulosin")
-                    Text("C . Preparation of Silodosin")
-                    Text("D . Both A & B")
-                }
-                .font(.title3.weight(.semibold))
+            VStack(spacing: 0.5) {
+                let isOpen = false
+                let isStar = false
+                DropdownView(isOpen: isOpen, isStar: isStar)
+                
+                DropdownView(isOpen: isOpen, isStar: isStar)
             }
-            .frame(width: 300)
-            
-            DisclosureGroup("Q2. What is Silofast?") {
-                VStack(alignment: .leading) {
-                    Text("A . Preparation of Dutasteride")
-                    Text("B . Preparation of Tamsulosin")
-                    Text("C . Preparation of Silodosin")
-                    Text("D . Both A & B")
-                }
-                .font(.title3.weight(.semibold))
-            }
-            .frame(width: 300)
-
-            
             Spacer()
         }
         .navigationBarBackButtonHidden(true)

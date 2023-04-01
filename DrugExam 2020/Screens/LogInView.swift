@@ -19,7 +19,7 @@ struct LogInView: View {
                 Spacer()
                 HStack {
                     Image(systemName: "person.fill")
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color("NavBar"))
                     
                     FloatingTextField(title: "username", text: $userid)
                 }
@@ -28,7 +28,7 @@ struct LogInView: View {
                 
                 HStack {
                     Image(systemName: "lock.fill")
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color("NavBar"))
                     
                     FloatingSecureTextField(title: "password", text: $password, isSecure: true)
                 }
@@ -40,9 +40,10 @@ struct LogInView: View {
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
                         .frame(maxWidth: .infinity, minHeight: 50)
-                        .background(Color.red)
+                        .background(Color("NavBar"))
                         .cornerRadius(15)
                 })
+                .padding(.horizontal, 50)
                 
 //                Button(action: {
 //
