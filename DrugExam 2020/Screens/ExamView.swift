@@ -20,8 +20,8 @@ struct ExamView: View {
                     Button(action: {
                         
                     }, label: {
-                        Text("0h 37m 46s")
-                            .font(.title2.weight(.heavy))
+                        Text("SUBMIT EXAM")
+                            .font(.title2.weight(.bold))
                             .foregroundColor(Color.white)
                             .frame(maxWidth: .infinity, minHeight: 60)
                     })
