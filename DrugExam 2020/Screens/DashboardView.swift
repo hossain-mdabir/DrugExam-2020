@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct DashboardView: View {
-    
+    // MARK: - PROPERTY
+    @StateObject var upcomingExamInfo = UpcomingExamInfo()
     
     
     var body: some View {
         ZStack {
             VStack {
                 HStack {
-                    Text("Exam Already Started")
+                    Text("\(upcomingExamInfo.upcomingExamData.remainingTime ?? "")")
                         .font(.title2)
                         .foregroundColor(Color.white)
                         .frame(maxWidth: .infinity, minHeight: 60)
@@ -24,7 +25,7 @@ struct DashboardView: View {
                 .padding(.top, 1)
                 
                 VStack {
-                    Text("BHP, Anti-Histamin, Bronchodilattor, HFA Inhaler & Short Notes of pharmacology")
+                    Text("\(upcomingExamInfo.upcomingExamData.examName ?? "")")
                     
                     Divider()
                     
@@ -36,12 +37,14 @@ struct DashboardView: View {
                         }
                         Spacer()
                         VStack(alignment: .leading, spacing: 10) {
-                            Text("Sun, 25 Oct 2020")
-                            Text("05:55:00 PM")
-                            Text("50 minutes")
+                            Text("\(upcomingExamInfo.upcomingExamData.examDateTime ?? "")")
+                            Text("\(upcomingExamInfo.upcomingExamData.examName ?? "")")
+                            Text("\(upcomingExamInfo.upcomingExamData.examDuration ?? 0) minutes")
                         }
                         Spacer()
                     }
+                    Text("Exam button will be activated on exam time")
+                        .foregroundColor(Color("NavBar"))
                 }
                 .padding(5)
                 .font(.system(size: 16, weight: .bold))
@@ -125,6 +128,11 @@ struct DashboardView: View {
                 }
                 .multilineTextAlignment(.leading)
                 Spacer()
+            }
+        }
+        .onAppear {
+            upcomingExamInfo.getUpcomingExamInfo { (response, error) in
+                
             }
         }
         .navigationBarBackButtonHidden(true)

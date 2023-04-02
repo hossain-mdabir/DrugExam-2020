@@ -8,10 +8,13 @@
 import Foundation
 
 class ApiIP: ObservableObject {
-    @Published var apiIP: String = "http://192.168.0.29:8088/drug_exam_ws/"
+    @Published var apiIP: String = "http://192.168.0.29:8088/drug_exam_ws/api/" // Local
 }
 
 class ApiString: ObservableObject {
-    @Published var logIn: String = "\(ApiIP().apiIP)api/user/login"
+    @Published var logIn: String = "\(ApiIP().apiIP)user/login"
+    @Published var upcomingExam: String = "\(ApiIP().apiIP)exam/get-upcoming-exam-status?"
+    @Published var examResult: String = "\(ApiIP().apiIP)exam/get-last-personal-result/"
+    @Published var examQues: String = "\(ApiIP().apiIP)exam/get-exam-ques/?" // userCode=1098&group=D
 }
 

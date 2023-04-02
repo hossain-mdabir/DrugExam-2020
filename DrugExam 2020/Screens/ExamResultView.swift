@@ -10,6 +10,7 @@ import SwiftUI
 struct ExamResultView: View {
     
     // MARK: - PROPERTY
+    @StateObject var examResultInfo = ExamResultInfo()
     
     // Dismiss view
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -31,21 +32,21 @@ struct ExamResultView: View {
                         .frame(maxWidth: .infinity, minHeight: 60, alignment: .leading)
                 }
                 .foregroundColor(Color.white)
-                .background(Color.red)
+                .background(Color("NavBar"))
                 .padding(.top, 1)
                 
-                ForEach(0...1, id: \.self) { _ in
+//                ForEach(0...1, id: \.self) { _ in
                     VStack(alignment: .leading, spacing: 10) {
                         HStack {
-                            Text("Exam No: \("81")")
+                            Text("Exam No: \(examResultInfo.examResultData.examNo ?? 0)")
                             Spacer()
-                            Text("Date: \("Mon, 27-Mar-2023")")
+                            Text("Date: \(examResultInfo.examResultData.examDate ?? "")")
                             Spacer()
                         }
                         .foregroundColor(Color.red)
                         .font(.system(size: width > 600 ? 25 : 18))
                         
-                        Text("EXAM MARCH -23")
+                        Text("\(examResultInfo.examResultData.examname ?? "")")
                             .foregroundColor(Color.gray)
                         
                         HStack {
@@ -55,8 +56,8 @@ struct ExamResultView: View {
                                     Text("Obtain Markas")
                                 }
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("50")
-                                    Text("38.0")
+                                    Text("\(examResultInfo.examResultData.totalmarks ?? 0)")
+                                    Text("\(examResultInfo.examResultData.obtainMarks ?? 0.0, specifier: "%.1f")")
                                 }
                                 .foregroundColor(Color.gray)
                             }
@@ -64,11 +65,11 @@ struct ExamResultView: View {
                             HStack {
                                 VStack(alignment: .leading, spacing: 10) {
                                     Text("Duration")
-                                    Text("Obtain Markas")
+                                    Text("Obtain Grade")
                                 }
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("50")
-                                    Text("A+")
+                                    Text("\(examResultInfo.examResultData.duration ?? 0)")
+                                    Text("\(examResultInfo.examResultData.grade ?? "")")
                                 }
                                 .foregroundColor(Color.gray)
                             }
@@ -84,11 +85,16 @@ struct ExamResultView: View {
                     .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 3, y: 3)
                     .shadow(color: Color.gray.opacity(0.3), radius: 5, x: -3, y: -3)
                     .padding(10)
-                }
+//                }
                 Spacer()
             }
         }
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            examResultInfo.getExamResult { (result, error) in
+                
+            }
+        }
     }
 }
 

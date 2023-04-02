@@ -54,6 +54,21 @@
 		7B66185D29D951FD0032A0AF /* ToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66185A29D951FD0032A0AF /* ToastNotification.swift */; };
 		7B66185E29D951FD0032A0AF /* ToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66185A29D951FD0032A0AF /* ToastNotification.swift */; };
 		7B66185F29D951FD0032A0AF /* ToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66185A29D951FD0032A0AF /* ToastNotification.swift */; };
+		7B66186429D95C320032A0AF /* UpcomingExamInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66186329D95C320032A0AF /* UpcomingExamInfo.swift */; };
+		7B66186529D95C320032A0AF /* UpcomingExamInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66186329D95C320032A0AF /* UpcomingExamInfo.swift */; };
+		7B66186629D95C320032A0AF /* UpcomingExamInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66186329D95C320032A0AF /* UpcomingExamInfo.swift */; };
+		7B66186929D95D880032A0AF /* UpcomingExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66186829D95D880032A0AF /* UpcomingExam.swift */; };
+		7B66186A29D95D880032A0AF /* UpcomingExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66186829D95D880032A0AF /* UpcomingExam.swift */; };
+		7B66186B29D95D880032A0AF /* UpcomingExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66186829D95D880032A0AF /* UpcomingExam.swift */; };
+		7B66186D29D96B5C0032A0AF /* ExamResultInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66186C29D96B5C0032A0AF /* ExamResultInfo.swift */; };
+		7B66186E29D96B5C0032A0AF /* ExamResultInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66186C29D96B5C0032A0AF /* ExamResultInfo.swift */; };
+		7B66186F29D96B5C0032A0AF /* ExamResultInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66186C29D96B5C0032A0AF /* ExamResultInfo.swift */; };
+		7B66187229D96CD60032A0AF /* ExamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66187129D96CD60032A0AF /* ExamResult.swift */; };
+		7B66187329D96CD60032A0AF /* ExamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66187129D96CD60032A0AF /* ExamResult.swift */; };
+		7B66187429D96CD60032A0AF /* ExamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66187129D96CD60032A0AF /* ExamResult.swift */; };
+		7B66187729D973C20032A0AF /* DecimelLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66187629D973C20032A0AF /* DecimelLimit.swift */; };
+		7B66187829D973C20032A0AF /* DecimelLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66187629D973C20032A0AF /* DecimelLimit.swift */; };
+		7B66187929D973C20032A0AF /* DecimelLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66187629D973C20032A0AF /* DecimelLimit.swift */; };
 		7B8757BF29D835FF00F87C04 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8757BE29D835FF00F87C04 /* Timer.swift */; };
 		7B8757C029D835FF00F87C04 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8757BE29D835FF00F87C04 /* Timer.swift */; };
 		7B8757C129D835FF00F87C04 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8757BE29D835FF00F87C04 /* Timer.swift */; };
@@ -100,6 +115,11 @@
 		7B66184F29D938B50032A0AF /* LogInAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInAuth.swift; sourceTree = "<group>"; };
 		7B66185429D939380032A0AF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		7B66185A29D951FD0032A0AF /* ToastNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastNotification.swift; sourceTree = "<group>"; };
+		7B66186329D95C320032A0AF /* UpcomingExamInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingExamInfo.swift; sourceTree = "<group>"; };
+		7B66186829D95D880032A0AF /* UpcomingExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingExam.swift; sourceTree = "<group>"; };
+		7B66186C29D96B5C0032A0AF /* ExamResultInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResultInfo.swift; sourceTree = "<group>"; };
+		7B66187129D96CD60032A0AF /* ExamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResult.swift; sourceTree = "<group>"; };
+		7B66187629D973C20032A0AF /* DecimelLimit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimelLimit.swift; sourceTree = "<group>"; };
 		7B8757BE29D835FF00F87C04 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,7 +260,9 @@
 		7B66184129D92B6F0032A0AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B66187029D96CBF0032A0AF /* ExamResult */,
 				7B66184229D92C480032A0AF /* Authentication */,
+				7B66186729D95D710032A0AF /* UpcomingExam */,
 				7B66185329D939280032A0AF /* Api */,
 			);
 			path = Model;
@@ -259,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				7B66184F29D938B50032A0AF /* LogInAuth.swift */,
+				7B66186329D95C320032A0AF /* UpcomingExamInfo.swift */,
+				7B66186C29D96B5C0032A0AF /* ExamResultInfo.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -287,10 +311,35 @@
 			path = Toast;
 			sourceTree = "<group>";
 		};
+		7B66186729D95D710032A0AF /* UpcomingExam */ = {
+			isa = PBXGroup;
+			children = (
+				7B66186829D95D880032A0AF /* UpcomingExam.swift */,
+			);
+			path = UpcomingExam;
+			sourceTree = "<group>";
+		};
+		7B66187029D96CBF0032A0AF /* ExamResult */ = {
+			isa = PBXGroup;
+			children = (
+				7B66187129D96CD60032A0AF /* ExamResult.swift */,
+			);
+			path = ExamResult;
+			sourceTree = "<group>";
+		};
+		7B66187529D973B40032A0AF /* DecimelLimit */ = {
+			isa = PBXGroup;
+			children = (
+				7B66187629D973C20032A0AF /* DecimelLimit.swift */,
+			);
+			path = DecimelLimit;
+			sourceTree = "<group>";
+		};
 		7B8757BC29D835E000F87C04 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				7B8757BD29D835E900F87C04 /* Timer */,
+				7B66187529D973B40032A0AF /* DecimelLimit */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -439,7 +488,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B66186929D95D880032A0AF /* UpcomingExam.swift in Sources */,
 				1089A5CB29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
+				7B66187729D973C20032A0AF /* DecimelLimit.swift in Sources */,
 				7B66184429D92C600032A0AF /* LogInPost.swift in Sources */,
 				10153C2429D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
 				7B66185529D939380032A0AF /* Api.swift in Sources */,
@@ -451,9 +502,12 @@
 				103F559829D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F556F29D49F6200212C6D /* ContentView.swift in Sources */,
 				7B66184829D92C690032A0AF /* LogInRes.swift in Sources */,
+				7B66187229D96CD60032A0AF /* ExamResult.swift in Sources */,
 				10153C2D29D6DD3E000EEB8D /* DropdownView.swift in Sources */,
 				1089A5CE29D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F556D29D49F6200212C6D /* DrugExam_2020App.swift in Sources */,
+				7B66186D29D96B5C0032A0AF /* ExamResultInfo.swift in Sources */,
+				7B66186429D95C320032A0AF /* UpcomingExamInfo.swift in Sources */,
 				10153C2829D69B7F000EEB8D /* ExamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +519,7 @@
 				7B66185E29D951FD0032A0AF /* ToastNotification.swift in Sources */,
 				10153C2929D69B7F000EEB8D /* ExamView.swift in Sources */,
 				1089A5CC29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
+				7B66186E29D96B5C0032A0AF /* ExamResultInfo.swift in Sources */,
 				103F559929D49F8D00212C6D /* LogInView.swift in Sources */,
 				10153C2529D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
 				1089A5D329D59074002CD74F /* DashboardView.swift in Sources */,
@@ -472,11 +527,15 @@
 				7B66183F29D92AF40032A0AF /* UserData.swift in Sources */,
 				7B8757C029D835FF00F87C04 /* Timer.swift in Sources */,
 				7B66184929D92C690032A0AF /* LogInRes.swift in Sources */,
+				7B66187829D973C20032A0AF /* DecimelLimit.swift in Sources */,
+				7B66186529D95C320032A0AF /* UpcomingExamInfo.swift in Sources */,
 				103F557E29D49F6300212C6D /* DrugExam_2020Tests.swift in Sources */,
 				7B66185129D938B50032A0AF /* LogInAuth.swift in Sources */,
 				7B66184529D92C600032A0AF /* LogInPost.swift in Sources */,
 				7B66185629D939380032A0AF /* Api.swift in Sources */,
+				7B66187329D96CD60032A0AF /* ExamResult.swift in Sources */,
 				1089A5CF29D58B11002CD74F /* FloatingTextField.swift in Sources */,
+				7B66186A29D95D880032A0AF /* UpcomingExam.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +543,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B66186B29D95D880032A0AF /* UpcomingExam.swift in Sources */,
 				1089A5CD29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
+				7B66187929D973C20032A0AF /* DecimelLimit.swift in Sources */,
 				7B66184629D92C600032A0AF /* LogInPost.swift in Sources */,
 				10153C2629D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
 				7B66185729D939380032A0AF /* Api.swift in Sources */,
@@ -496,9 +557,12 @@
 				103F559A29D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F558829D49F6300212C6D /* DrugExam_2020UITests.swift in Sources */,
 				7B66184A29D92C690032A0AF /* LogInRes.swift in Sources */,
+				7B66187429D96CD60032A0AF /* ExamResult.swift in Sources */,
 				10153C2F29D6DD3E000EEB8D /* DropdownView.swift in Sources */,
 				1089A5D029D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F558A29D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift in Sources */,
+				7B66186F29D96B5C0032A0AF /* ExamResultInfo.swift in Sources */,
+				7B66186629D95C320032A0AF /* UpcomingExamInfo.swift in Sources */,
 				10153C2A29D69B7F000EEB8D /* ExamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
