@@ -260,9 +260,9 @@
 		7B66184129D92B6F0032A0AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7B66187029D96CBF0032A0AF /* ExamResult */,
 				7B66184229D92C480032A0AF /* Authentication */,
 				7B66186729D95D710032A0AF /* UpcomingExam */,
+				7B66187029D96CBF0032A0AF /* ExamResult */,
 				7B66185329D939280032A0AF /* Api */,
 			);
 			path = Model;

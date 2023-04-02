@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LogInView: View {
     // MARK: - PROPERTIES
+    @AppStorage("username") var userID: String = ""
+    
     @State private var userid = ""
     @State private var password = ""
     @State private var goDashboard: Bool = false
@@ -60,6 +62,10 @@ struct LogInView: View {
             }
             .padding()
         }
+        .onAppear {
+            // Inserting saved userID to userid Field
+            userid = userID
+        }
         // MARK: - Toast Alert's
         .toastNotification(isNeedToShow: $isToast, msg: $toastMsg)
         .toolbarColorScheme(.light, for: .navigationBar)
@@ -92,6 +98,11 @@ struct LogInView: View {
             
             if response?.objResponse?.userIsActive == 1 {
                 if response?.objResponse?.examFlag == 1 && response?.objResponse?.needUpdate != 1 {
+                    
+                    // Saving UserName
+                    userID = userid
+                    
+                    // Navigating to Dashboard
                     goDashboard = true
                 } else {
                     if response?.objResponse?.examFlag != 1 {

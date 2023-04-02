@@ -45,6 +45,7 @@ struct DashboardView: View {
                     }
                     Text("Exam button will be activated on exam time")
                         .foregroundColor(Color("NavBar"))
+                        .padding(.top, 5)
                 }
                 .padding(5)
                 .font(.system(size: 16, weight: .bold))
