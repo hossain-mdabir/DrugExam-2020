@@ -35,6 +35,25 @@
 		1089A5D229D59074002CD74F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5D129D59074002CD74F /* DashboardView.swift */; };
 		1089A5D329D59074002CD74F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5D129D59074002CD74F /* DashboardView.swift */; };
 		1089A5D429D59074002CD74F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089A5D129D59074002CD74F /* DashboardView.swift */; };
+		7B66183E29D92AF40032A0AF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66183D29D92AF40032A0AF /* UserData.swift */; };
+		7B66183F29D92AF40032A0AF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66183D29D92AF40032A0AF /* UserData.swift */; };
+		7B66184029D92AF40032A0AF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66183D29D92AF40032A0AF /* UserData.swift */; };
+		7B66184429D92C600032A0AF /* LogInPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66184329D92C600032A0AF /* LogInPost.swift */; };
+		7B66184529D92C600032A0AF /* LogInPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66184329D92C600032A0AF /* LogInPost.swift */; };
+		7B66184629D92C600032A0AF /* LogInPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66184329D92C600032A0AF /* LogInPost.swift */; };
+		7B66184829D92C690032A0AF /* LogInRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66184729D92C690032A0AF /* LogInRes.swift */; };
+		7B66184929D92C690032A0AF /* LogInRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66184729D92C690032A0AF /* LogInRes.swift */; };
+		7B66184A29D92C690032A0AF /* LogInRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66184729D92C690032A0AF /* LogInRes.swift */; };
+		7B66184D29D937F70032A0AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7B66184C29D937F70032A0AF /* Alamofire */; };
+		7B66185029D938B50032A0AF /* LogInAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66184F29D938B50032A0AF /* LogInAuth.swift */; };
+		7B66185129D938B50032A0AF /* LogInAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66184F29D938B50032A0AF /* LogInAuth.swift */; };
+		7B66185229D938B50032A0AF /* LogInAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66184F29D938B50032A0AF /* LogInAuth.swift */; };
+		7B66185529D939380032A0AF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66185429D939380032A0AF /* Api.swift */; };
+		7B66185629D939380032A0AF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66185429D939380032A0AF /* Api.swift */; };
+		7B66185729D939380032A0AF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66185429D939380032A0AF /* Api.swift */; };
+		7B66185D29D951FD0032A0AF /* ToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66185A29D951FD0032A0AF /* ToastNotification.swift */; };
+		7B66185E29D951FD0032A0AF /* ToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66185A29D951FD0032A0AF /* ToastNotification.swift */; };
+		7B66185F29D951FD0032A0AF /* ToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66185A29D951FD0032A0AF /* ToastNotification.swift */; };
 		7B8757BF29D835FF00F87C04 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8757BE29D835FF00F87C04 /* Timer.swift */; };
 		7B8757C029D835FF00F87C04 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8757BE29D835FF00F87C04 /* Timer.swift */; };
 		7B8757C129D835FF00F87C04 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8757BE29D835FF00F87C04 /* Timer.swift */; };
@@ -75,6 +94,12 @@
 		1089A5C929D58B11002CD74F /* FloatingSecureTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingSecureTextField.swift; sourceTree = "<group>"; };
 		1089A5CA29D58B11002CD74F /* FloatingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
 		1089A5D129D59074002CD74F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		7B66183D29D92AF40032A0AF /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		7B66184329D92C600032A0AF /* LogInPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPost.swift; sourceTree = "<group>"; };
+		7B66184729D92C690032A0AF /* LogInRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRes.swift; sourceTree = "<group>"; };
+		7B66184F29D938B50032A0AF /* LogInAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInAuth.swift; sourceTree = "<group>"; };
+		7B66185429D939380032A0AF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		7B66185A29D951FD0032A0AF /* ToastNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastNotification.swift; sourceTree = "<group>"; };
 		7B8757BE29D835FF00F87C04 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B66184D29D937F70032A0AF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +161,10 @@
 			isa = PBXGroup;
 			children = (
 				7B8757BC29D835E000F87C04 /* Extensions */,
+				7B66185829D951FD0032A0AF /* AlertsAndWarning */,
+				7B66183C29D92AC00032A0AF /* Storage */,
+				7B66184E29D938940032A0AF /* Services */,
+				7B66184129D92B6F0032A0AF /* Model */,
 				1089A5C729D58A20002CD74F /* Views */,
 				103F559629D49F7200212C6D /* Screens */,
 				103F556C29D49F6200212C6D /* DrugExam_2020App.swift */,
@@ -199,6 +229,64 @@
 			path = InputFields;
 			sourceTree = "<group>";
 		};
+		7B66183C29D92AC00032A0AF /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				7B66183D29D92AF40032A0AF /* UserData.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		7B66184129D92B6F0032A0AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B66184229D92C480032A0AF /* Authentication */,
+				7B66185329D939280032A0AF /* Api */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B66184229D92C480032A0AF /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				7B66184329D92C600032A0AF /* LogInPost.swift */,
+				7B66184729D92C690032A0AF /* LogInRes.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		7B66184E29D938940032A0AF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7B66184F29D938B50032A0AF /* LogInAuth.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7B66185329D939280032A0AF /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				7B66185429D939380032A0AF /* Api.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		7B66185829D951FD0032A0AF /* AlertsAndWarning */ = {
+			isa = PBXGroup;
+			children = (
+				7B66185929D951FD0032A0AF /* Toast */,
+			);
+			path = AlertsAndWarning;
+			sourceTree = "<group>";
+		};
+		7B66185929D951FD0032A0AF /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				7B66185A29D951FD0032A0AF /* ToastNotification.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		7B8757BC29D835E000F87C04 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +319,9 @@
 			dependencies = (
 			);
 			name = "DrugExam 2020";
+			packageProductDependencies = (
+				7B66184C29D937F70032A0AF /* Alamofire */,
+			);
 			productName = "DrugExam 2020";
 			productReference = 103F556929D49F6200212C6D /* DrugExam 2020.app */;
 			productType = "com.apple.product-type.application";
@@ -303,6 +394,9 @@
 				Base,
 			);
 			mainGroup = 103F556029D49F6200212C6D;
+			packageReferences = (
+				7B66184B29D937F70032A0AF /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 103F556A29D49F6200212C6D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -346,11 +440,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1089A5CB29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
+				7B66184429D92C600032A0AF /* LogInPost.swift in Sources */,
 				10153C2429D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
+				7B66185529D939380032A0AF /* Api.swift in Sources */,
+				7B66185D29D951FD0032A0AF /* ToastNotification.swift in Sources */,
 				1089A5D229D59074002CD74F /* DashboardView.swift in Sources */,
+				7B66183E29D92AF40032A0AF /* UserData.swift in Sources */,
+				7B66185029D938B50032A0AF /* LogInAuth.swift in Sources */,
 				7B8757BF29D835FF00F87C04 /* Timer.swift in Sources */,
 				103F559829D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F556F29D49F6200212C6D /* ContentView.swift in Sources */,
+				7B66184829D92C690032A0AF /* LogInRes.swift in Sources */,
 				10153C2D29D6DD3E000EEB8D /* DropdownView.swift in Sources */,
 				1089A5CE29D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F556D29D49F6200212C6D /* DrugExam_2020App.swift in Sources */,
@@ -362,14 +462,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B66185E29D951FD0032A0AF /* ToastNotification.swift in Sources */,
 				10153C2929D69B7F000EEB8D /* ExamView.swift in Sources */,
 				1089A5CC29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
 				103F559929D49F8D00212C6D /* LogInView.swift in Sources */,
 				10153C2529D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
 				1089A5D329D59074002CD74F /* DashboardView.swift in Sources */,
 				10153C2E29D6DD3E000EEB8D /* DropdownView.swift in Sources */,
+				7B66183F29D92AF40032A0AF /* UserData.swift in Sources */,
 				7B8757C029D835FF00F87C04 /* Timer.swift in Sources */,
+				7B66184929D92C690032A0AF /* LogInRes.swift in Sources */,
 				103F557E29D49F6300212C6D /* DrugExam_2020Tests.swift in Sources */,
+				7B66185129D938B50032A0AF /* LogInAuth.swift in Sources */,
+				7B66184529D92C600032A0AF /* LogInPost.swift in Sources */,
+				7B66185629D939380032A0AF /* Api.swift in Sources */,
 				1089A5CF29D58B11002CD74F /* FloatingTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,11 +485,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1089A5CD29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
+				7B66184629D92C600032A0AF /* LogInPost.swift in Sources */,
 				10153C2629D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
+				7B66185729D939380032A0AF /* Api.swift in Sources */,
+				7B66185F29D951FD0032A0AF /* ToastNotification.swift in Sources */,
 				1089A5D429D59074002CD74F /* DashboardView.swift in Sources */,
+				7B66184029D92AF40032A0AF /* UserData.swift in Sources */,
+				7B66185229D938B50032A0AF /* LogInAuth.swift in Sources */,
 				7B8757C129D835FF00F87C04 /* Timer.swift in Sources */,
 				103F559A29D49F8D00212C6D /* LogInView.swift in Sources */,
 				103F558829D49F6300212C6D /* DrugExam_2020UITests.swift in Sources */,
+				7B66184A29D92C690032A0AF /* LogInRes.swift in Sources */,
 				10153C2F29D6DD3E000EEB8D /* DropdownView.swift in Sources */,
 				1089A5D029D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F558A29D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift in Sources */,
@@ -532,6 +644,8 @@
 				DEVELOPMENT_TEAM = 94AJ5AU8D9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "DrugExam 2020";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -542,8 +656,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mdabirhossain.DrugExam-2020";
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.drug.drugexam.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -562,6 +676,8 @@
 				DEVELOPMENT_TEAM = 94AJ5AU8D9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "DrugExam 2020";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -572,8 +688,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mdabirhossain.DrugExam-2020";
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.drug.drugexam.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -693,6 +809,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7B66184B29D937F70032A0AF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7B66184C29D937F70032A0AF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B66184B29D937F70032A0AF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 103F556129D49F6200212C6D /* Project object */;
 }
