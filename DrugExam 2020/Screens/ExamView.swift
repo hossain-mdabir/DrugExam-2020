@@ -46,7 +46,6 @@ struct ExamView: View {
                             
                         }, label: {
                             Text("Collapse All")
-                                .font(.title3)
                                 .foregroundColor(Color.black)
                                 .frame(maxWidth: .infinity, maxHeight: 60)
                                 .background(Color.white)
@@ -56,7 +55,6 @@ struct ExamView: View {
                             
                         }, label: {
                             Text("Expand All")
-                                .font(.title3)
                                 .foregroundColor(Color.black)
                                 .frame(maxWidth: .infinity, maxHeight: 60)
                                 .background(Color.white)
@@ -66,7 +64,6 @@ struct ExamView: View {
                             
                         }, label: {
                             Text("Marked Question")
-                                .font(.title3)
                                 .foregroundColor(Color.black)
                                 .frame(maxWidth: .infinity, maxHeight: 60)
                                 .background(Color.white)
@@ -79,7 +76,6 @@ struct ExamView: View {
                             
                         }, label: {
                             Text("All Question")
-                                .font(.title3)
                                 .foregroundColor(Color.black)
                                 .frame(maxWidth: .infinity, maxHeight: 60)
                                 .background(Color.white)
@@ -89,7 +85,6 @@ struct ExamView: View {
                             
                         }, label: {
                             Text("Answered")
-                                .font(.title3)
                                 .foregroundColor(Color.black)
                                 .frame(maxWidth: .infinity, maxHeight: 60)
                                 .background(Color.white)
@@ -99,7 +94,6 @@ struct ExamView: View {
                             
                         }, label: {
                             Text("Unanswered")
-                                .font(.title3)
                                 .foregroundColor(Color.black)
                                 .frame(maxWidth: .infinity, maxHeight: 60)
                                 .background(Color.white)
@@ -107,6 +101,7 @@ struct ExamView: View {
                         })
                     }
                 }
+                .font(.title3)
                 .padding(5)
             }
             .background(Color("NavBar"))
@@ -122,6 +117,9 @@ struct ExamView: View {
             Spacer()
         }
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            getQuestionInfo()
+        }
     }
 }
 

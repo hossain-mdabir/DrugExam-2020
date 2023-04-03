@@ -32,7 +32,7 @@ class ExamResultInfo: ObservableObject {
                 
                 self.examResultData = response?.objResponse ?? ExamResultData()
                 
-                print ("Exam Result response: \(response)")
+                print("Exam Result response: \(response)")
                 completionHandler(response, nil)
             case .failure(let error):
                 print("Print Exam Result-\(error)")

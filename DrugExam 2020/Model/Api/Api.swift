@@ -15,6 +15,6 @@ class ApiString: ObservableObject {
     @Published var logIn: String = "\(ApiIP().apiIP)user/login"
     @Published var upcomingExam: String = "\(ApiIP().apiIP)exam/get-upcoming-exam-status?"
     @Published var examResult: String = "\(ApiIP().apiIP)exam/get-last-personal-result/"
-    @Published var examQues: String = "\(ApiIP().apiIP)exam/get-exam-ques/?" // userCode=1098&group=D
+    @Published var examQes: String = "\(ApiIP().apiIP)exam/get-exam-ques/?"
 }
 

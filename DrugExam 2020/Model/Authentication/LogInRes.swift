@@ -7,14 +7,14 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - LogInRes
 struct LogInRes: Decodable {
     var message: String?
     var statusCode: Int?
     var objResponse: UserDataRes?
 }
 
-// MARK: - ObjResponse
+// MARK: - UserDataRes
 struct UserDataRes: Decodable {
     var systemUserid: String?
     var userCode: String?

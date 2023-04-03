@@ -7,14 +7,14 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - ExamResult
 struct ExamResult: Decodable {
     var message: String?
     var statusCode: Int?
     var objResponse: ExamResultData?
 }
 
-// MARK: - ObjResponse
+// MARK: - ExamResultData
 struct ExamResultData: Decodable {
     var examNo: Int?
     var obtainMarks: Double?
