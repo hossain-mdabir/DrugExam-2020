@@ -11,11 +11,11 @@ import Foundation
 struct Question: Decodable {
     var message: String?
     var statusCode: Int?
-    var listResponse: [ListResponse]?
+    var listResponse: [QuestionInfo]?
 }
 
 // MARK: - ListResponse
-struct ListResponse: Decodable {
+struct QuestionInfo: Decodable {
     var questionNo: String?
     var questionName: String?
     var choiceA: String?
@@ -24,6 +24,6 @@ struct ListResponse: Decodable {
     var choiceD: String?
     var correctAns: String?
     var chosenAns: String?
-    var bookMark: String?
+    var bookmark: Int?
 }
 

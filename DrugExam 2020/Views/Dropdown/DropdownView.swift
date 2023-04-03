@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DropdownView: View {
     
+    @State var questionInfo: QuestionInfo
     @State var isOpen: Bool
     @State var isStar: Bool
     
@@ -24,8 +25,9 @@ struct DropdownView: View {
                         .rotationEffect(.degrees(isOpen ? -180 : 0))
                         .padding(5)
                     
-                    Text("Q1. What is Silofast?")
+                    Text("\(questionInfo.questionNo ?? "") \(questionInfo.questionName ?? "")")
                         .font(.title3.weight(.semibold))
+                        .multilineTextAlignment(.leading)
                     Spacer()
                     Button(action: {
                         withAnimation { self.isStar.toggle() }
@@ -40,13 +42,20 @@ struct DropdownView: View {
             .background(Color("NavBar").opacity(0.7))
             
             if isOpen {
-                VStack(alignment: .leading) {
-                    Text("A . Preparation of Dutasteride")
-                    Text("B . Preparation of Tamsulosin")
-                    Text("C . Preparation of Silodosin")
-                    Text("D . Both A & B")
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("A . \(questionInfo.choiceA ?? "")")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("B . \(questionInfo.choiceB ?? "")")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("C . \(questionInfo.choiceC ?? "")")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("D . \(questionInfo.choiceD ?? "")")
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                .padding(.vertical, 3)
+                .padding(.leading, 20)
                 .font(.title3.weight(.semibold))
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
     }
@@ -54,6 +63,6 @@ struct DropdownView: View {
 
 struct DropdownView_Previews: PreviewProvider {
     static var previews: some View {
-        DropdownView(isOpen: true, isStar: true)
+        DropdownView(questionInfo: QuestionInfo(), isOpen: true, isStar: true)
     }
 }

@@ -29,22 +29,20 @@ func getQuestionInfo() {
                 print("Question response from DO \(response)")
                 
                 let db = QuestionData()
-//                var custInfo = response.listResponse
-//                if (custInfo != nil) {
-//                    db.deleteAllCust()
-//                    for var cust in custInfo! {
-//                        print("cust-- ::\(cust)")
-//                        db.insertCustomer(cust: cust)
-//                    }
-//                }
+                let qesInfo = response.listResponse
+                if (qesInfo != nil) {
+                    db.deleteAllQuestion()
+                    for qes in qesInfo! {
+                        print("qes-- ::\(qes)")
+                        db.insertQuestion(qes: qes)
+                    }
+                }
             } catch {
-                print("Sync report ERROR: \(error)")
+                print("Question ERROR: \(error)")
             }
-            
-            print ("Sync : DEBUG DATA-value- :: \(value.debugDescription)")
-            
+            print ("Question : DEBUG DATA :: \(value.debugDescription)")
         case .failure(let error):
-            print("Print Edit: \(error)")
+            print("Print Question: \(error)")
         }
     }
 }
