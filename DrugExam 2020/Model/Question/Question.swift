@@ -24,6 +24,7 @@ struct QuestionInfo: Decodable {
     var choiceD: String?
     var correctAns: String?
     var chosenAns: String?
-    var bookmark: Int?
+    var open: String?
+    var bookmark: String?
 }
 

@@ -14,8 +14,13 @@ struct ExamView: View {
     @State private var buttonOffset: CGSize = .zero
     @State private var isButtonHidden: Bool = false
     @State private var buttonOpacity: Double = 1
+    
+    @State var isOpen = false
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    @State private var qesDatas: [QuestionInfo] = []
+    @State var qesDatas: [QuestionInfo] = []
+    @State private var queryData = "all"
+    @State private var queryType = "all"
+    
     
     init() {
         UIScrollView.appearance().bounces = false
@@ -26,12 +31,28 @@ struct ExamView: View {
     func getQestionData() {
         self.qesDatas.removeAll()
         
-        let qesList: [QuestionInfo] = QuestionData().getQuestion()
-        for p in qesList {
-            self.qesDatas.append(p)
+        let qesList: [QuestionInfo] = QuestionData().getQuestion(queryData: queryData, queryType: queryType)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            for p in qesList {
+                self.qesDatas.append(p)
+            }
         }
+        
         print("qesDatas-- \(qesDatas.count)")
     }
+    
+//    func updateQestionData() {
+//        self.qesDatas.removeAll()
+//
+//        let qesList: [QuestionInfo] = QuestionData().getQuestion(queryData: queryData, queryType: queryType)
+//
+//        for p in qesList {
+//            self.qesDatas.append(p)
+//        }
+//
+//        print("qesDatas-- \(qesDatas.count)")
+//    }
     
     var body: some View {
         VStack {
@@ -64,61 +85,57 @@ struct ExamView: View {
                     VStack {
                         HStack {
                             Button(action: {
-                                
+                                withAnimation {
+                                    isOpen = false
+                                    getQestionData()
+                                }
                             }, label: {
                                 Text("Collapse All")
-                                    .foregroundColor(Color.black)
-                                    .frame(maxWidth: .infinity, maxHeight: 60)
-                                    .background(Color.white)
-                                    .cornerRadius(5)
+                                    .buttonModifier()
                             })
                             Button(action: {
-                                
+                                withAnimation {
+                                    isOpen = true
+                                    getQestionData()
+                                }
                             }, label: {
                                 Text("Expand All")
-                                    .foregroundColor(Color.black)
-                                    .frame(maxWidth: .infinity, maxHeight: 60)
-                                    .background(Color.white)
-                                    .cornerRadius(5)
+                                    .buttonModifier()
                             })
                             Button(action: {
-                                
+                                queryData = "1"
+                                queryType = "bookmark"
+                                getQestionData()
                             }, label: {
                                 Text("Marked Question")
-                                    .foregroundColor(Color.black)
-                                    .frame(maxWidth: .infinity, maxHeight: 60)
-                                    .background(Color.white)
-                                    .cornerRadius(5)
+                                    .buttonModifier()
                             })
                         }
                         
                         HStack {
                             Button(action: {
-                                
+                                queryData = "all"
+                                queryType = "all"
+                                getQestionData()
                             }, label: {
                                 Text("All Question")
-                                    .foregroundColor(Color.black)
-                                    .frame(maxWidth: .infinity, maxHeight: 60)
-                                    .background(Color.white)
-                                    .cornerRadius(5)
+                                    .buttonModifier()
                             })
                             Button(action: {
-                                
+                                queryData = ""
+                                queryType = "ans"
+                                getQestionData()
                             }, label: {
                                 Text("Answered")
-                                    .foregroundColor(Color.black)
-                                    .frame(maxWidth: .infinity, maxHeight: 60)
-                                    .background(Color.white)
-                                    .cornerRadius(5)
+                                    .buttonModifier()
                             })
                             Button(action: {
-                                
+                                queryData = ""
+                                queryType = "notAns"
+                                getQestionData()
                             }, label: {
                                 Text("Unanswered")
-                                    .foregroundColor(Color.black)
-                                    .frame(maxWidth: .infinity, maxHeight: 60)
-                                    .background(Color.white)
-                                    .cornerRadius(5)
+                                    .buttonModifier()
                             })
                         }
                     }
@@ -131,7 +148,6 @@ struct ExamView: View {
             
             ScrollView(showsIndicators: false) {
                 
-                let isOpen = true
                 let isStar = false
                 VStack(spacing: 0.5) {
                     GeometryReader { geometry in
@@ -181,7 +197,7 @@ struct ExamView: View {
                     }
                     ForEach(0 ..< qesDatas.count, id: \.self) { data in
                         
-                        DropdownView(questionInfo: qesDatas[data],isOpen: isOpen, isStar: isStar)
+                        DropdownView(questionInfo: qesDatas[data], isOpen: isOpen)
                     }
                 }
             }
@@ -190,23 +206,8 @@ struct ExamView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear(perform: {
             getQuestionInfo()
-//            {
-//                (response, error) in
-//                print("Insertinggg22-- \(response?.statusCode)")
-//                if response?.statusCode == 200 {
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                        getQestionData()
-//                let qesList: [QuestionInfo] = QuestionData().getQuestion()
-//                for p in qesList {
-//                    self.qesDatas.append(p)
-//                }
-//
-//                print("qesDatas-- \(qesDatas.count)")
-//                    }
-//                }
-//            }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                let qesList: [QuestionInfo] = QuestionData().getQuestion()
+                let qesList: [QuestionInfo] = QuestionData().getQuestion(queryData: "all", queryType: "all")
                 for p in qesList {
                     self.qesDatas.append(p)
                 }

@@ -25,12 +25,15 @@ class QuestionData: ObservableObject {
     static let COL_CHOICE_D = "choiceD"
     static let COL_CORRECT_ANS = "correctAns"
     static let COL_CHOSEN_ANS = "chosenAns"
+    static let COL_OPEN = "open"
     static let COL_BOOKMARK = "bookmark"
     
     init() {
-        
+
         self.db = createDatabase()
-        self.createQuestionTable()
+        if !(UserDefaults.standard.bool(forKey: "qesTableCreated")) {
+            self.createQuestionTable()
+        }
     }
     
     func createDatabase() -> OpaquePointer? {
@@ -64,7 +67,7 @@ class QuestionData: ObservableObject {
         \(QuestionData.COL_CHOICE_D) TEXT,
         \(QuestionData.COL_CORRECT_ANS) TEXT,
         \(QuestionData.COL_CHOSEN_ANS) TEXT,
-        \(QuestionData.COL_BOOKMARK) INTEGER
+        \(QuestionData.COL_BOOKMARK) TEXT
         )
         """
         
@@ -73,6 +76,7 @@ class QuestionData: ObservableObject {
         if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK {
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Question Table created SUCCESSFULLY")
+                UserDefaults.standard.set(true, forKey: "qesTableCreated")
             } else {
                 print("Question Table creation FAILED")
             }
@@ -113,7 +117,7 @@ class QuestionData: ObservableObject {
             sqlite3_bind_text(statement, 6, ((qes.choiceD ?? "") as NSString).utf8String, -1, nil)
             sqlite3_bind_text(statement, 7, ((qes.correctAns ?? "") as NSString).utf8String, -1, nil)
             sqlite3_bind_text(statement, 8, ((qes.chosenAns ?? "") as NSString).utf8String, -1, nil)
-            sqlite3_bind_int(statement, 9, Int32(qes.bookmark ?? 0))
+            sqlite3_bind_text(statement, 9, ((qes.bookmark ?? "") as NSString).utf8String, -1, nil)
             
             
             if sqlite3_step(statement) == SQLITE_DONE {
@@ -129,11 +133,23 @@ class QuestionData: ObservableObject {
     
     
     // MARK: - Get Customer
-    func getQuestion() -> [QuestionInfo] {
+    func getQuestion(queryData: String, queryType: String) -> [QuestionInfo] {
         
         var qesList = [QuestionInfo]()
         var statement: OpaquePointer? = nil
-        let query = "SELECT * FROM Question"
+        var query = ""
+        
+        if queryType == "all" {
+            query = "SELECT * FROM Question"
+        } else if queryType == "ans" {
+            query = "SELECT * FROM Question WHERE \(QuestionData.COL_CHOSEN_ANS) IS NOT ''"
+        } else if queryType == "notAns" {
+            query = "SELECT * FROM Question WHERE \(QuestionData.COL_CHOSEN_ANS) IS ''"
+        } else if queryType == "open" {
+            query = "SELECT * FROM Question WHERE \(QuestionData.COL_OPEN) = '\(queryData)'"
+        } else if queryType == "bookmark" {
+            query = "SELECT * FROM Question WHERE \(QuestionData.COL_BOOKMARK) = '1'"
+        }
         
         if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK {
             
@@ -147,7 +163,7 @@ class QuestionData: ObservableObject {
                 let choiceD = String(describing: String(cString: sqlite3_column_text(statement, 6)))
                 let correctAns = String(describing: String(cString: sqlite3_column_text(statement, 7)))
                 let chosenAns = String(describing: String(cString: sqlite3_column_text(statement, 8)))
-                let bookmark = Int(sqlite3_column_double(statement, 9))
+                let bookmark = String(describing: String(cString: sqlite3_column_text(statement, 9)))
                 
                 
                 var qes = QuestionInfo()
@@ -172,6 +188,26 @@ class QuestionData: ObservableObject {
         sqlite3_finalize(statement)
         print("Question size : \(qesList.count)")
         return qesList
+    }
+    
+    
+    // MARK: - Update added products for selected customer
+    func updateQuestion(updateData: String, queryType: String, qesNo: String) {
+        var query = ""
+        
+        if queryType == "ans" {
+            query = "UPDATE Question SET \(QuestionData.COL_CHOSEN_ANS) = '\(updateData)' WHERE \(QuestionData.COL_QUESTION_NO) = '\(qesNo)'"
+        } else if queryType == "bookmark" {
+            query = "UPDATE Question SET \(QuestionData.COL_BOOKMARK) = '\(updateData)' WHERE \(QuestionData.COL_QUESTION_NO) = '\(qesNo)'"
+        }
+        var statement : OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK{
+            if sqlite3_step(statement) == SQLITE_DONE {
+                print("Question Data update success")
+            } else {
+                print("Question Data is not updated from table")
+            }
+        }
     }
     
     

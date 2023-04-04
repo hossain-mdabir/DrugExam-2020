@@ -11,7 +11,7 @@ struct DropdownView: View {
     
     @State var questionInfo: QuestionInfo
     @State var isOpen: Bool
-    @State var isStar: Bool
+//    var funct: () -> Void
     
     var body: some View {
         VStack(spacing: 0) {
@@ -30,30 +30,71 @@ struct DropdownView: View {
                         .multilineTextAlignment(.leading)
                     Spacer()
                     Button(action: {
-                        withAnimation { self.isStar.toggle() }
+                        var bookmark = ""
+                        if questionInfo.bookmark == "" {
+                            bookmark = "1"
+                        } else {
+                            bookmark = questionInfo.bookmark == "1" ? "0" : "1"
+                        }
+                        QuestionData().updateQuestion(updateData: bookmark, queryType: "bookmark", qesNo: questionInfo.questionNo ?? "")
+                        questionInfo.bookmark = "1"
                     }, label: {
-                        Image(systemName: isStar ? "star.fill" : "star")
+                        Image(systemName: questionInfo.bookmark == "1" ? "star.fill" : "star")
                             .font(.title3)
+                            .foregroundColor(Color("NavBar"))
                     })
                 }
                 .padding(8)
             })
             .foregroundColor(Color.white)
-            .background(Color("NavBar").opacity(0.7))
+            .background(Color("NavBar").opacity(0.5))
             
             if isOpen {
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("A . \(questionInfo.choiceA ?? "")")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("B . \(questionInfo.choiceB ?? "")")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("C . \(questionInfo.choiceC ?? "")")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("D . \(questionInfo.choiceD ?? "")")
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    let pri = print("chosenAns : \(questionInfo.chosenAns)")
+                    let pri2 = print("questionNo : \(questionInfo.questionNo)")
+                    Button(action: {
+                        QuestionData().updateQuestion(updateData: "A", queryType: "ans", qesNo: questionInfo.questionNo ?? "")
+                        questionInfo.chosenAns = "A"
+                    }, label: {
+                        Text("A . \(questionInfo.choiceA ?? "")")
+                            .padding(.leading, 20)
+                            .foregroundColor(Color.black)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(questionInfo.chosenAns == "A" ? Color.green.opacity(0.3) : Color.clear)
+                    })
+                    Button(action: {
+                        QuestionData().updateQuestion(updateData: "B", queryType: "ans", qesNo: questionInfo.questionNo ?? "")
+                        questionInfo.chosenAns = "B"
+                    }, label: {
+                        Text("B . \(questionInfo.choiceB ?? "")")
+                            .padding(.leading, 20)
+                            .foregroundColor(Color.black)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(questionInfo.chosenAns == "B" ? Color.green.opacity(0.3) : Color.clear)
+                    })
+                    Button(action: {
+                        QuestionData().updateQuestion(updateData: "C", queryType: "ans", qesNo: questionInfo.questionNo ?? "")
+                        questionInfo.chosenAns = "C"
+                    }, label: {
+                        Text("C . \(questionInfo.choiceC ?? "")")
+                            .padding(.leading, 20)
+                            .foregroundColor(Color.black)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(questionInfo.chosenAns == "C" ? Color.green.opacity(0.3) : Color.clear)
+                    })
+                    Button(action: {
+                        QuestionData().updateQuestion(updateData: "D", queryType: "ans", qesNo: questionInfo.questionNo ?? "")
+                        questionInfo.chosenAns = "D"
+                    }, label: {
+                        Text("D . \(questionInfo.choiceD ?? "")")
+                            .padding(.leading, 20)
+                            .foregroundColor(Color.black)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(questionInfo.chosenAns == "D" ? Color.green.opacity(0.3) : Color.clear)
+                    })
                 }
                 .padding(.vertical, 3)
-                .padding(.leading, 20)
                 .font(.title3.weight(.semibold))
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -63,6 +104,6 @@ struct DropdownView: View {
 
 struct DropdownView_Previews: PreviewProvider {
     static var previews: some View {
-        DropdownView(questionInfo: QuestionInfo(), isOpen: true, isStar: true)
+        DropdownView(questionInfo: QuestionInfo(), isOpen: true)
     }
 }
