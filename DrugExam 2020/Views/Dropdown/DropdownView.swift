@@ -30,14 +30,13 @@ struct DropdownView: View {
                         .multilineTextAlignment(.leading)
                     Spacer()
                     Button(action: {
-                        var bookmark = ""
-                        if questionInfo.bookmark == "" {
-                            bookmark = "1"
+                        if questionInfo.bookmark == "1" {
+                            questionInfo.bookmark = "0"
                         } else {
-                            bookmark = questionInfo.bookmark == "1" ? "0" : "1"
+                            questionInfo.bookmark = "1"
                         }
-                        QuestionData().updateQuestion(updateData: bookmark, queryType: "bookmark", qesNo: questionInfo.questionNo ?? "")
-                        questionInfo.bookmark = "1"
+                        QuestionData().updateQuestion(updateData: questionInfo.bookmark ?? "1", queryType: "bookmark", qesNo: questionInfo.questionNo ?? "")
+//                        questionInfo.bookmark = "1"
                     }, label: {
                         Image(systemName: questionInfo.bookmark == "1" ? "star.fill" : "star")
                             .font(.title3)

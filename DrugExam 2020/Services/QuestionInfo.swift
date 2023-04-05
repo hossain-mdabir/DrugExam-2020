@@ -32,7 +32,8 @@ func getQuestionInfo() {
                 let qesInfo = response.listResponse
                 if (qesInfo != nil) {
                     db.deleteAllQuestion()
-                    for qes in qesInfo! {
+                    for var qes in qesInfo! {
+                        qes.chosenAns = "N"
                         print("qes-- ::\(qes)")
                         db.insertQuestion(qes: qes)
                     }

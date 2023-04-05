@@ -57,7 +57,7 @@ struct DashboardView: View {
                 
                 
                 HStack(spacing: 10) {
-                    NavigationLink(destination: ExamView()) {
+                    NavigationLink(destination: ExamView(upcomingExamData: upcomingExamInfo.upcomingExamData)) {
                         VStack {
                             ZStack {
                                 Circle()

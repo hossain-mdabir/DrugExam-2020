@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ExamView: View {
     
     // MARK: - PROPERTY
+    @State var upcomingExamData : UpcomingExamData
     // Dismiss view
     @State private var buttonOffset: CGSize = .zero
     @State private var isButtonHidden: Bool = false
@@ -22,9 +24,9 @@ struct ExamView: View {
     @State private var queryType = "all"
     
     
-    init() {
-        UIScrollView.appearance().bounces = false
-    }
+//    init() {
+//    UIScrollView.appearance().bounces = false
+//    }
     
     // MARK: - FUNCTIONS
     // Get data from DB to show in screen or refresh screen
@@ -41,18 +43,6 @@ struct ExamView: View {
         
         print("qesDatas-- \(qesDatas.count)")
     }
-    
-//    func updateQestionData() {
-//        self.qesDatas.removeAll()
-//
-//        let qesList: [QuestionInfo] = QuestionData().getQuestion(queryData: queryData, queryType: queryType)
-//
-//        for p in qesList {
-//            self.qesDatas.append(p)
-//        }
-//
-//        print("qesDatas-- \(qesDatas.count)")
-//    }
     
     var body: some View {
         VStack {
@@ -72,6 +62,12 @@ struct ExamView: View {
                         .frame(minHeight: 60)
                     Spacer()
                     Button(action: {
+                        print("perQesMark \(perQesMark())")
+                        print("obtainMark1 \(obtainMark())")
+                        print("grade \(grade())")
+                        print("gpa \(gpa())")
+                        
+                        postExam()
                         
                     }, label: {
                         Text("SUBMIT EXAM")
@@ -148,7 +144,6 @@ struct ExamView: View {
             
             ScrollView(showsIndicators: false) {
                 
-                let isStar = false
                 VStack(spacing: 0.5) {
                     GeometryReader { geometry in
                         
@@ -195,9 +190,13 @@ struct ExamView: View {
 //                                    }
 //                            ) //: GESTURE
                     }
-                    ForEach(0 ..< qesDatas.count, id: \.self) { data in
-                        
-                        DropdownView(questionInfo: qesDatas[data], isOpen: isOpen)
+                    if qesDatas.count > 0 {
+                        ForEach(0 ..< qesDatas.count, id: \.self) { data in
+                            
+                            DropdownView(questionInfo: qesDatas[data], isOpen: isOpen)
+                        }
+                    } else {
+                        Text("No Q. found in this Filter")
                     }
                 }
             }
@@ -213,12 +212,111 @@ struct ExamView: View {
                 }
                 print("qesDatas-- \(qesDatas.count)")
             }
+            
+            // Scroll bouncing effect on/off
+            UIScrollView.appearance().bounces = false
         })
+    }
+    
+    // Question Data
+    func qesData() -> [QuestionInfo] {
+        
+        var qesPaper: [QuestionInfo] = []
+        
+        let qesList: [QuestionInfo] = QuestionData().getQuestion(queryData: "all", queryType: "all")
+        
+        for p in qesList {
+            qesPaper.append(p)
+        }
+        print("qesPaper-- \(qesPaper.count)")
+        return qesPaper
+    }
+    
+    // Per-Question Mark
+    func perQesMark() -> Double {
+        let perQesMark = Double(upcomingExamData.totalMarks ?? 0) / Double(upcomingExamData.totalQuestion ?? 0)
+//        print("perQesMark-- : \(upcomingExamData.totalQuestion) - \(upcomingExamData.totalMarks)")
+        print("perQesMark-- : \(perQesMark)")
+        return perQesMark
+    }
+    
+    
+    // Obtain Mark
+    func obtainMark() -> Double {
+        var obtainMark = 0.0
+        
+        for mark in qesData() {
+            if mark.correctAns == mark.chosenAns {
+                obtainMark = obtainMark + perQesMark()
+            }
+        }
+        print("obtainMark func main \(obtainMark)")
+        return obtainMark
+    }
+    
+    
+    // Grade
+    func gpa() -> Double {
+        let gpa = (5 * obtainMark()) / Double(upcomingExamData.totalMarks ?? 0)
+        print("gpa func 1 \(gpa)")
+        return gpa
+    }
+    
+    
+    // GPS
+    func grade() -> String {
+        let grade = (obtainMark() * 100) / Double(upcomingExamData.totalMarks ?? 0)
+        
+        print("obtainMark func 1 \(obtainMark())")
+        print("grade func 1 \(grade)")
+        if grade > 90 {
+            return "A+"
+        } else if grade > 80 {
+            return "A"
+        } else if grade > 70 {
+            return "A-"
+        } else if grade > 60 {
+            return "B-"
+        } else if grade > 50 {
+            return "C"
+        } else {
+            return "F"
+        }
+    }
+    
+    
+    // Exam POST
+    func postExam() {
+        
+        var qesPaper: [ResultDetail] = []
+        
+        var post = ExamPostModel()
+        post.examNo = upcomingExamData.examNo
+        post.gpa = gpa()
+        post.grade = grade()
+        post.mrCode = UserData().readStringData(key: UserData().USER_CODE)
+        post.obtainMarks = obtainMark()
+        
+        for p in qesData() {
+            var pp = ResultDetail()
+            pp.choosenAns = p.chosenAns
+            pp.examNo = upcomingExamData.examNo
+            pp.givenAns = p.correctAns
+            pp.mrCode = UserData().readStringData(key: UserData().USER_CODE)
+            pp.quesNo = p.questionNo
+            
+            qesPaper.append(pp)
+        }
+        post.resultDetails = qesPaper
+        
+        examPost(post: post) { (response, error) in
+            
+        }
     }
 }
 
 struct ExamView_Previews: PreviewProvider {
     static var previews: some View {
-        ExamView()
+        ExamView(upcomingExamData: UpcomingExamData())
     }
 }

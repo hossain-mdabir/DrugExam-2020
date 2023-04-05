@@ -16,5 +16,6 @@ class ApiString: ObservableObject {
     @Published var upcomingExam: String = "\(ApiIP().apiIP)exam/get-upcoming-exam-status?"
     @Published var examResult: String = "\(ApiIP().apiIP)exam/get-last-personal-result/"
     @Published var examQes: String = "\(ApiIP().apiIP)exam/get-exam-ques/?"
+    @Published var examPost: String = "\(ApiIP().apiIP)/exam/save-result"
 }
 
