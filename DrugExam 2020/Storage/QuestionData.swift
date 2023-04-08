@@ -142,9 +142,9 @@ class QuestionData: ObservableObject {
         if queryType == "all" {
             query = "SELECT * FROM Question"
         } else if queryType == "ans" {
-            query = "SELECT * FROM Question WHERE \(QuestionData.COL_CHOSEN_ANS) IS NOT ''"
+            query = "SELECT * FROM Question WHERE \(QuestionData.COL_CHOSEN_ANS) IS NOT 'N'"
         } else if queryType == "notAns" {
-            query = "SELECT * FROM Question WHERE \(QuestionData.COL_CHOSEN_ANS) IS ''"
+            query = "SELECT * FROM Question WHERE \(QuestionData.COL_CHOSEN_ANS) IS 'N'"
         } else if queryType == "open" {
             query = "SELECT * FROM Question WHERE \(QuestionData.COL_OPEN) = '\(queryData)'"
         } else if queryType == "bookmark" {

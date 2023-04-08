@@ -11,7 +11,6 @@ struct DashboardView: View {
     // MARK: - PROPERTY
     @StateObject var upcomingExamInfo = UpcomingExamInfo()
     
-    
     var body: some View {
         ZStack {
             VStack {
@@ -96,6 +95,7 @@ struct DashboardView: View {
                     }
                 }
                 .padding(.horizontal, 10)
+                
                 
                 VStack(alignment: .leading, spacing: 5) {
                     HStack {

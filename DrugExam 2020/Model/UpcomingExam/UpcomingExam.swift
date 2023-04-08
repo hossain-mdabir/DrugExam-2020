@@ -15,7 +15,7 @@ struct UpcomingExam: Decodable {
 }
 
 // MARK: - UpcomingExamData
-struct UpcomingExamData: Decodable {
+struct UpcomingExamData: Decodable, Hashable {
     var examNo: Int?
     var examName: String?
     var examDateTime: String?
