@@ -8,6 +8,7 @@
 import Foundation
 
 class ApiIP: ObservableObject {
+//    @Published var apiIP: String = "http://163.47.146.233:8099/drug_exam_ws/api/" // Live
     @Published var apiIP: String = "http://192.168.0.29:8088/drug_exam_ws/api/" // Local
 }
 

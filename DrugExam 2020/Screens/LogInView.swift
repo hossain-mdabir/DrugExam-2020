@@ -25,7 +25,9 @@ struct LogInView: View {
     var body: some View {
         ZStack {
             VStack {
-                Image("drug-120")
+                Image("drug-180")
+                    .resizable()
+                    .frame(width: UIScreen.main.bounds.width > 650 ? 140 : 120, height: UIScreen.main.bounds.width > 650 ? 140 : 120)
                 Spacer()
                 HStack {
                     Image(systemName: "person.fill")

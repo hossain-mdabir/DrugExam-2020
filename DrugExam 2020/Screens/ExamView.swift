@@ -11,7 +11,7 @@ import UIKit
 struct ExamView: View {
     
     // MARK: - PROPERTY
-    @State var upcomingExamData : UpcomingExamData
+    @State var upcomingExam : UpcomingExam
     // Dismiss view
     @State private var buttonOffset: CGSize = .zero
     @State private var isButtonHidden: Bool = false
@@ -290,7 +290,7 @@ struct ExamView: View {
                 .padding(.bottom, 2)
                     
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("Total Question: \(upcomingExamData.totalQuestion ?? 0)")
+                    Text("Total Question: \(upcomingExam.objResponse?.totalQuestion ?? 0)")
                         .foregroundColor(Color.primary)
                     Text("Answered: \(answeredQes)")
                         .foregroundColor(Color.green)
@@ -348,6 +348,9 @@ struct ExamView: View {
                 Spacer()
                 Button(action: {
                     withAnimation { self.isSubmittedPopUp = false }
+                    
+                    // GO B=back to Dashboard
+                    self.mode.wrappedValue.dismiss()
                 }, label: {
                     Text("Ok")
                         .padding(.vertical, 5)
@@ -377,7 +380,7 @@ struct ExamView: View {
     
     // Per-Question Mark
     func perQesMark() -> Double {
-        let perQesMark = Double(upcomingExamData.totalMarks ?? 0) / Double(upcomingExamData.totalQuestion ?? 0)
+        let perQesMark = Double(upcomingExam.objResponse?.totalMarks ?? 0) / Double(upcomingExam.objResponse?.totalQuestion ?? 0)
 //        print("perQesMark-- : \(upcomingExamData.totalQuestion) - \(upcomingExamData.totalMarks)")
         return perQesMark
     }
@@ -398,7 +401,7 @@ struct ExamView: View {
     
     // Grade
     func gpa() -> Double {
-        let gpa = (5 * obtainMark()) / Double(upcomingExamData.totalMarks ?? 0)
+        let gpa = (5 * obtainMark()) / Double(upcomingExam.objResponse?.totalMarks ?? 0)
         print("gpa func 1 \(gpa)")
         return gpa
     }
@@ -406,7 +409,7 @@ struct ExamView: View {
     
     // GPS
     func grade() -> String {
-        let grade = (obtainMark() * 100) / Double(upcomingExamData.totalMarks ?? 0)
+        let grade = (obtainMark() * 100) / Double(upcomingExam.objResponse?.totalMarks ?? 0)
         
         if grade > 90 {
             return "A+"
@@ -433,7 +436,7 @@ struct ExamView: View {
         var qesPaper: [ResultDetail] = []
         
         var post = ExamPostModel()
-        post.examNo = upcomingExamData.examNo
+        post.examNo = upcomingExam.objResponse?.examNo
         post.gpa = gpa()
         post.grade = grade()
         post.mrCode = UserData().readStringData(key: UserData().USER_CODE)
@@ -444,7 +447,7 @@ struct ExamView: View {
         for p in qesData() {
             var pp = ResultDetail()
             pp.choosenAns = p.chosenAns
-            pp.examNo = upcomingExamData.examNo
+            pp.examNo = upcomingExam.objResponse?.examNo
             pp.givenAns = p.correctAns
             pp.mrCode = UserData().readStringData(key: UserData().USER_CODE)
             pp.quesNo = p.questionNo
@@ -465,6 +468,7 @@ struct ExamView: View {
                     self.isSubmitPopUp = false
                     self.isSubmittedPopUp = true
                 }
+                
             } else {
                 if error != nil {
                     withAnimation {
@@ -478,6 +482,6 @@ struct ExamView: View {
 
 struct ExamView_Previews: PreviewProvider {
     static var previews: some View {
-        ExamView(upcomingExamData: UpcomingExamData())
+        ExamView(upcomingExam: UpcomingExam())
     }
 }

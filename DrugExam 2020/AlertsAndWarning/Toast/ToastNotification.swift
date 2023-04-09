@@ -23,9 +23,9 @@ struct ToastNotification: ViewModifier {
                 VStack {
                     Spacer()
                     HStack {
-//                        Image("thp_logo")
-//                            .resizable()
-//                            .frame(width: 20, height: 20)
+                        Image("drug-180")
+                            .resizable()
+                            .frame(width: 20, height: 20)
                         
                         Text(message)
                             .font(.footnote)

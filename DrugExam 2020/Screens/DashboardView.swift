@@ -15,7 +15,7 @@ struct DashboardView: View {
         ZStack {
             VStack {
                 HStack {
-                    Text("\(upcomingExamInfo.upcomingExamData.remainingTime ?? "")")
+                    Text("\(upcomingExamInfo.upcomingExam.objResponse?.remainingTime ?? "")")
                         .font(.title2)
                         .foregroundColor(Color.white)
                         .frame(maxWidth: .infinity, minHeight: 60)
@@ -24,39 +24,46 @@ struct DashboardView: View {
                 .padding(.top, 1)
                 
                 VStack {
-                    Text("\(upcomingExamInfo.upcomingExamData.examName ?? "")")
-                    
-                    Divider()
-                    
-                    HStack {
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text("Exam Date")
-                            Text("Start Time")
-                            Text("Duration")
+                    if upcomingExamInfo.upcomingExam.statusCode == 200 {
+                        Text("\(upcomingExamInfo.upcomingExam.objResponse?.examName ?? "")")
+                        
+                        Divider()
+                        
+                        HStack {
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text("Exam Date")
+                                Text("Start Time")
+                                Text("Duration")
+                            }
+                            Spacer()
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text("\(upcomingExamInfo.upcomingExam.objResponse?.examDateTime ?? "")")
+                                Text("\(upcomingExamInfo.upcomingExam.objResponse?.examName ?? "")")
+                                Text("\(upcomingExamInfo.upcomingExam.objResponse?.examDuration ?? 0) minutes")
+                            }
+                            Spacer()
                         }
-                        Spacer()
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text("\(upcomingExamInfo.upcomingExamData.examDateTime ?? "")")
-                            Text("\(upcomingExamInfo.upcomingExamData.examName ?? "")")
-                            Text("\(upcomingExamInfo.upcomingExamData.examDuration ?? 0) minutes")
-                        }
-                        Spacer()
+                        Text("Exam button will be activated on exam time")
+                            .foregroundColor(Color("NavBar"))
+                            .padding(.top, 5)
+                    } else {
+                        Text("No Exam Today")
+                            .foregroundColor(Color("NavBar"))
+                            .frame(maxWidth: .infinity, maxHeight: 40)
+                            .padding(.top, 5)
                     }
-                    Text("Exam button will be activated on exam time")
-                        .foregroundColor(Color("NavBar"))
-                        .padding(.top, 5)
                 }
                 .padding(5)
                 .font(.system(size: 16, weight: .bold))
                 .background(Color.white)
                 .cornerRadius(10)
-                .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 3, y: 3)
-                .shadow(color: Color.gray.opacity(0.3), radius: 5, x: -3, y: -3)
+                .shadow(color: Color.gray.opacity(0.3), radius: 3, x: 3, y: 3)
+                .shadow(color: Color.gray.opacity(0.3), radius: 3, x: -3, y: -3)
                 .padding(10)
                 
                 
                 HStack(spacing: 10) {
-                    NavigationLink(destination: ExamView(upcomingExamData: upcomingExamInfo.upcomingExamData)) {
+                    NavigationLink(destination: ExamView(upcomingExam: upcomingExamInfo.upcomingExam)) {
                         VStack {
                             ZStack {
                                 Circle()
@@ -69,13 +76,14 @@ struct DashboardView: View {
                             
                             Text("START EXAM")
                                 .font(.title3.weight(.bold))
-                                .foregroundColor(Color.primary)
+                                .foregroundColor(Color.primary.opacity(upcomingExamInfo.upcomingExam.statusCode == 200 ? 1 : 0.5))
                                 .padding(.vertical)
                         }
                         .frame(maxWidth: .infinity, minHeight: 200)
                         .background(Color.gray.opacity(0.3))
                         .cornerRadius(10)
                     }
+                    .disabled(true)
                     
                     NavigationLink(destination: ExamResultView()) {
                         VStack {
