@@ -29,10 +29,14 @@ struct ExamView: View {
     @State private var isSubmitPopUp: Bool = false
     @State private var isSubmittedPopUp: Bool = false
     @State private var examRes = ResultInfo()
+    @State private var timeRead = ""
     
     //Loading Animation
     @State var isLoadingAnimation: Bool = false
     
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    @StateObject var timeCounter = TimeCounter()
     
     
 //    init() {
@@ -68,10 +72,12 @@ struct ExamView: View {
                                 .foregroundColor(Color.white)
                                 .padding(.horizontal, 5)
                         })
-                        Text("0h 37m 46s")
+                        
+                        Text("\(timeRead)")
                             .font(.title2.weight(.bold))
                             .foregroundColor(Color.white)
-                            .frame(minHeight: 60)
+                            .padding(10)
+                            
                         Spacer()
                         Button(action: {
                             print("perQesMark \(perQesMark())")
@@ -97,9 +103,11 @@ struct ExamView: View {
                             Text("SUBMIT EXAM")
                                 .font(.title2.weight(.bold))
                                 .foregroundColor(Color.white)
-                                .frame(maxWidth: .infinity, minHeight: 60)
+                                .padding(10)
                         })
                     }
+                    .frame(maxWidth: .infinity, maxHeight: 60)
+                    
                     
                     if !isButtonHidden {
                         VStack {
@@ -229,6 +237,7 @@ struct ExamView: View {
             .preferredColorScheme(.light)
             .onAppear(perform: {
                 getQuestionInfo()
+                timeCounter.updateCounter(counter: upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     let qesList: [QuestionInfo] = QuestionData().getQuestion(queryData: "all", queryType: "all")
                     for p in qesList {
@@ -239,7 +248,23 @@ struct ExamView: View {
                 
                 // Scroll bouncing effect on/off
                 UIScrollView.appearance().bounces = false
-        })
+            })
+            .onReceive(timer) { _ in
+                
+                if upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0 > 0 {
+                    
+                    upcomingExam.objResponse?.remaingTimeInMiliSec = (upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0) - 1
+                    //                    date = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())!
+                    print("Exam VIew \(upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)")
+                    timeCounter.updateCounter(counter: upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)
+                    let formatter = DateComponentsFormatter()
+                    formatter.allowedUnits = [.day, .hour, .minute, .second]
+                    formatter.unitsStyle = .abbreviated
+                    
+                    let formattedString = formatter.string(from: TimeInterval(upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0))!
+                    timeRead = formattedString
+                }
+            }
             
             // MARK: - PopUp's
             // Order post confirmation PopUp

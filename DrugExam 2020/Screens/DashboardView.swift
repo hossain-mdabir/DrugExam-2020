@@ -11,17 +11,56 @@ struct DashboardView: View {
     // MARK: - PROPERTY
     @StateObject var upcomingExamInfo = UpcomingExamInfo()
     
+    @StateObject var timeCounter = TimeCounter()
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    @State var milSceToSec: Int64 = 0
+    
+//    func toDate(toDate: Int) -> Date {
+//    @State var toDate = Calendar.current.date(byAdding: .second, value: toDate, to: Date())!
+//        return toDate
+//    }
+    @State var date = Date()
+    @State var count = 2
+    
+    
     var body: some View {
         ZStack {
             VStack {
                 HStack {
-                    Text("\(upcomingExamInfo.upcomingExam.objResponse?.remainingTime ?? "")")
-                        .font(.title2)
-                        .foregroundColor(Color.white)
-                        .frame(maxWidth: .infinity, minHeight: 60)
-                        .background(Color("NavBar"))
+                    // Time count
+//                    var toDate = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())!
+                    
+                    if milSceToSec > 0 {
+//                        TimerView(milSce: milSceToSec, setDate: toDate(toDate: Int(milSceToSec)))
+//                    TimerCountdown(count: $count, setDate: $date)
+                        Text("\(timeCounter.timeRead)")
+                    } else {
+                        // Coming from API
+//                        Text("\(upcomingExamInfo.upcomingExam.objResponse?.remainingTime ?? "")")
+                        Text("Exam is started")
+                    }
                 }
                 .padding(.top, 1)
+                .font(.title2)
+                .foregroundColor(Color.white)
+                .frame(maxWidth: .infinity, minHeight: 60)
+                .background(Color("NavBar"))
+                .onReceive(timer) { _ in
+                    count += 2
+                    
+                    if milSceToSec > 0 {
+                        milSceToSec -= 1
+                        upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec = milSceToSec
+                        //                    date = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())!
+                        timeCounter.updateCounter(counter: milSceToSec)
+                    }
+                    
+//                    upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec = milSceToSec
+                    print("milSceToSec :- \(milSceToSec)")
+                    print("remaingTimeInMiliSec :- \(upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)")
+                }
                 
                 VStack {
                     if upcomingExamInfo.upcomingExam.statusCode == 200 {
@@ -83,7 +122,7 @@ struct DashboardView: View {
                         .background(Color.gray.opacity(0.3))
                         .cornerRadius(10)
                     }
-                    .disabled(true)
+                    .disabled(milSceToSec <= 0)
                     
                     NavigationLink(destination: ExamResultView()) {
                         VStack {
@@ -141,7 +180,13 @@ struct DashboardView: View {
         }
         .onAppear {
             upcomingExamInfo.getUpcomingExamInfo { (response, error) in
+                milSceToSec = (upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0) / 1000
+                timeCounter.updateCounter(counter: milSceToSec)
+//                TimeCounter(counter: milSceToSec)
+                print("timeRead \(TimeCounter().timeRead)")
                 
+//                toDate = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())!
+                print("milSceToSec-on : \(milSceToSec)")
             }
         }
         .navigationBarBackButtonHidden(true)

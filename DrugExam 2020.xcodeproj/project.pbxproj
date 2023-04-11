@@ -44,6 +44,9 @@
 		7B2498F629DA828500CDD93E /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2498F529DA828500CDD93E /* QuestionData.swift */; };
 		7B2498F729DA828500CDD93E /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2498F529DA828500CDD93E /* QuestionData.swift */; };
 		7B2498F829DA828500CDD93E /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2498F529DA828500CDD93E /* QuestionData.swift */; };
+		7B30910A29E2B592003E3346 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B30910929E2B592003E3346 /* TimerView.swift */; };
+		7B30910B29E2B592003E3346 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B30910929E2B592003E3346 /* TimerView.swift */; };
+		7B30910C29E2B592003E3346 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B30910929E2B592003E3346 /* TimerView.swift */; };
 		7B66183E29D92AF40032A0AF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66183D29D92AF40032A0AF /* UserData.swift */; };
 		7B66183F29D92AF40032A0AF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66183D29D92AF40032A0AF /* UserData.swift */; };
 		7B66184029D92AF40032A0AF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66183D29D92AF40032A0AF /* UserData.swift */; };
@@ -96,6 +99,9 @@
 		7BBA57EE29DC20D400203220 /* ExamResModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA57ED29DC20D400203220 /* ExamResModel.swift */; };
 		7BBA57EF29DC20D400203220 /* ExamResModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA57ED29DC20D400203220 /* ExamResModel.swift */; };
 		7BBA57F029DC20D400203220 /* ExamResModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA57ED29DC20D400203220 /* ExamResModel.swift */; };
+		7BDE281529E407250053DFB0 /* TimerCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE281429E407250053DFB0 /* TimerCountdown.swift */; };
+		7BDE281629E407250053DFB0 /* TimerCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE281429E407250053DFB0 /* TimerCountdown.swift */; };
+		7BDE281729E407250053DFB0 /* TimerCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE281429E407250053DFB0 /* TimerCountdown.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +142,7 @@
 		7B2498EC29DA7E0E00CDD93E /* QuestionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionInfo.swift; sourceTree = "<group>"; };
 		7B2498F129DA7F2F00CDD93E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		7B2498F529DA828500CDD93E /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
+		7B30910929E2B592003E3346 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		7B66183D29D92AF40032A0AF /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		7B66184329D92C600032A0AF /* LogInPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPost.swift; sourceTree = "<group>"; };
 		7B66184729D92C690032A0AF /* LogInRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRes.swift; sourceTree = "<group>"; };
@@ -153,6 +160,7 @@
 		7BBA57E529DC1A5B00203220 /* ExamPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamPostModel.swift; sourceTree = "<group>"; };
 		7BBA57E929DC1AE700203220 /* ExamPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamPost.swift; sourceTree = "<group>"; };
 		7BBA57ED29DC20D400203220 /* ExamResModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResModel.swift; sourceTree = "<group>"; };
+		7BDE281429E407250053DFB0 /* TimerCountdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCountdown.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +220,7 @@
 		103F556B29D49F6200212C6D /* DrugExam 2020 */ = {
 			isa = PBXGroup;
 			children = (
+				7BDE281229E4070A0053DFB0 /* CountDown */,
 				7B8757BC29D835E000F87C04 /* Extensions */,
 				7B66185829D951FD0032A0AF /* AlertsAndWarning */,
 				7B66183C29D92AC00032A0AF /* Storage */,
@@ -266,6 +275,7 @@
 		1089A5C729D58A20002CD74F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7B30910829E2B57D003E3346 /* Timer */,
 				7B693A8A29E13EB900DF5D52 /* Animation */,
 				10153C2B29D6DD12000EEB8D /* Dropdown */,
 				1089A5C829D58B11002CD74F /* InputFields */,
@@ -288,6 +298,14 @@
 				7B2498F129DA7F2F00CDD93E /* Question.swift */,
 			);
 			path = Question;
+			sourceTree = "<group>";
+		};
+		7B30910829E2B57D003E3346 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				7B30910929E2B592003E3346 /* TimerView.swift */,
+			);
+			path = Timer;
 			sourceTree = "<group>";
 		};
 		7B66183C29D92AC00032A0AF /* Storage */ = {
@@ -422,6 +440,14 @@
 				7BBA57ED29DC20D400203220 /* ExamResModel.swift */,
 			);
 			path = ExamPost;
+			sourceTree = "<group>";
+		};
+		7BDE281229E4070A0053DFB0 /* CountDown */ = {
+			isa = PBXGroup;
+			children = (
+				7BDE281429E407250053DFB0 /* TimerCountdown.swift */,
+			);
+			path = CountDown;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,6 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B30910A29E2B592003E3346 /* TimerView.swift in Sources */,
 				7B66186929D95D880032A0AF /* UpcomingExam.swift in Sources */,
 				1089A5CB29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
 				7BBA57E629DC1A5B00203220 /* ExamPostModel.swift in Sources */,
@@ -567,6 +594,7 @@
 				7B66187729D973C20032A0AF /* DecimelLimit.swift in Sources */,
 				7B66184429D92C600032A0AF /* LogInPost.swift in Sources */,
 				10153C2429D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
+				7BDE281529E407250053DFB0 /* TimerCountdown.swift in Sources */,
 				7B66185529D939380032A0AF /* Api.swift in Sources */,
 				7B66185D29D951FD0032A0AF /* ToastNotification.swift in Sources */,
 				1089A5D229D59074002CD74F /* DashboardView.swift in Sources */,
@@ -620,6 +648,8 @@
 				7B66185129D938B50032A0AF /* LogInAuth.swift in Sources */,
 				7BBA57E229DBD8A700203220 /* ButtonModifier.swift in Sources */,
 				7B66184529D92C600032A0AF /* LogInPost.swift in Sources */,
+				7B30910B29E2B592003E3346 /* TimerView.swift in Sources */,
+				7BDE281629E407250053DFB0 /* TimerCountdown.swift in Sources */,
 				7B66185629D939380032A0AF /* Api.swift in Sources */,
 				7B66187329D96CD60032A0AF /* ExamResult.swift in Sources */,
 				1089A5CF29D58B11002CD74F /* FloatingTextField.swift in Sources */,
@@ -631,6 +661,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B30910C29E2B592003E3346 /* TimerView.swift in Sources */,
 				7B66186B29D95D880032A0AF /* UpcomingExam.swift in Sources */,
 				1089A5CD29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
 				7BBA57E829DC1A5B00203220 /* ExamPostModel.swift in Sources */,
@@ -638,6 +669,7 @@
 				7B66187929D973C20032A0AF /* DecimelLimit.swift in Sources */,
 				7B66184629D92C600032A0AF /* LogInPost.swift in Sources */,
 				10153C2629D5CC1D000EEB8D /* ExamResultView.swift in Sources */,
+				7BDE281729E407250053DFB0 /* TimerCountdown.swift in Sources */,
 				7B66185729D939380032A0AF /* Api.swift in Sources */,
 				7B66185F29D951FD0032A0AF /* ToastNotification.swift in Sources */,
 				1089A5D429D59074002CD74F /* DashboardView.swift in Sources */,
