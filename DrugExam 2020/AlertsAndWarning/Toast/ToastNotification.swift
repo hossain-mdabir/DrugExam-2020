@@ -10,8 +10,8 @@ import SwiftUI
 // MARK: - Toast for Order
 struct ToastNotification: ViewModifier {
     
-    @Binding var isNeedToShow: Bool
-    @Binding var message: String
+    @Binding var isToast: Bool
+    @Binding var msg: String
     
     let duration: TimeInterval
     
@@ -19,7 +19,7 @@ struct ToastNotification: ViewModifier {
         ZStack {
             content
             
-            if isNeedToShow {
+            if isToast {
                 VStack {
                     Spacer()
                     HStack {
@@ -27,7 +27,7 @@ struct ToastNotification: ViewModifier {
                             .resizable()
                             .frame(width: 20, height: 20)
                         
-                        Text(message)
+                        Text(msg)
                             .font(.footnote)
                     }
                     .scaledToFit()
@@ -41,7 +41,7 @@ struct ToastNotification: ViewModifier {
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
                         withAnimation {
-                            isNeedToShow = false
+                            isToast = false
                         }
                     }
                 }
@@ -52,7 +52,7 @@ struct ToastNotification: ViewModifier {
 
 //MARK: - Order Toast Duration Extension
 extension View {
-    func toastNotification(isNeedToShow: Binding<Bool>, msg: Binding<String>, duration: TimeInterval = 3) -> some View {
-        modifier(ToastNotification(isNeedToShow: isNeedToShow, message: msg, duration: duration))
+    func toastNotification(isToast: Binding<Bool>, msg: Binding<String>, duration: TimeInterval = 3) -> some View {
+        modifier(ToastNotification(isToast: isToast, msg: msg, duration: duration))
     }
 }

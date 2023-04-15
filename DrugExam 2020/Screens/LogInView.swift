@@ -15,12 +15,14 @@ struct LogInView: View {
     @State private var password = ""
     @State private var goDashboard: Bool = false
     @State private var isNeedUpdate: Bool = false
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     // Open's Link
     @Environment(\.openURL) var openURL
     
     // Toast
     @State private var isToast: Bool = false
-    @State private var toastMsg = ""
+    @State private var msg = ""
     
     var body: some View {
         ZStack {
@@ -68,8 +70,12 @@ struct LogInView: View {
             // Inserting saved userID to userid Field
             userid = userID
         }
+        .onDisappear {
+            self.mode.wrappedValue.dismiss()
+            print("Disappearing from LogIn")
+        }
         // MARK: - Toast Alert's
-        .toastNotification(isNeedToShow: $isToast, msg: $toastMsg)
+        .toastNotification(isToast: $isToast, msg: $msg)
         .toolbarColorScheme(.light, for: .navigationBar)
         
         // App version update
@@ -98,26 +104,35 @@ struct LogInView: View {
             print("response.userRole \(response?.objResponse?.userRole)")
             print("UserDataUI : \(UserData().readStringData(key: UserData().USER_ROLE))")
             
-            if response?.objResponse?.userIsActive == 1 {
-                if response?.objResponse?.examFlag == 1 && response?.objResponse?.needUpdate != 1 {
-                    
-                    // Saving UserName
-                    userID = userid
-                    
-                    // Navigating to Dashboard
-                    goDashboard = true
-                } else {
-                    if response?.objResponse?.examFlag != 1 {
-                        isToast = true
-                        toastMsg = "User is not eligible for exam"
-                        print("Cannot sit for exam")
-                    } else if response?.objResponse?.needUpdate == 1 {
-                        self.isNeedUpdate = true
-                        print("Need to update DrugExam 2020 App")
+            if response != nil {
+                if response?.statusCode == 200 {
+                    if response?.objResponse?.userIsActive == 1 {
+                        if response?.objResponse?.examFlag == 1 && response?.objResponse?.needUpdate != 1 {
+                            
+                            // Saving UserName
+                            userID = userid
+                            
+                            // Navigating to Dashboard
+                            goDashboard = true
+                        } else {
+                            if response?.objResponse?.examFlag != 1 {
+                                isToast = true
+                                msg = "User is not eligible for exam"
+                                print("Cannot sit for exam")
+                            } else if response?.objResponse?.needUpdate == 1 {
+                                self.isNeedUpdate = true
+                                print("Need to update DrugExam 2020 App")
+                            }
+                        }
+                    } else {
+                        print("User Not Active")
                     }
+                } else {
+                    isToast = true
+                    msg = response?.message ?? ""
                 }
             } else {
-                print("User Not Active")
+                print("LogIn ErRROR \(error?.localizedDescription)")
             }
         }
     }

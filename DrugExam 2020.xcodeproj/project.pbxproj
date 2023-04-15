@@ -47,6 +47,12 @@
 		7B30910A29E2B592003E3346 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B30910929E2B592003E3346 /* TimerView.swift */; };
 		7B30910B29E2B592003E3346 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B30910929E2B592003E3346 /* TimerView.swift */; };
 		7B30910C29E2B592003E3346 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B30910929E2B592003E3346 /* TimerView.swift */; };
+		7B3FBE0E29EA660B002E175B /* ExamDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3FBE0D29EA660B002E175B /* ExamDuration.swift */; };
+		7B3FBE0F29EA660B002E175B /* ExamDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3FBE0D29EA660B002E175B /* ExamDuration.swift */; };
+		7B3FBE1029EA660B002E175B /* ExamDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3FBE0D29EA660B002E175B /* ExamDuration.swift */; };
+		7B3FBE1329EAA966002E175B /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3FBE1229EAA966002E175B /* DateFormatter.swift */; };
+		7B3FBE1429EAA966002E175B /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3FBE1229EAA966002E175B /* DateFormatter.swift */; };
+		7B3FBE1529EAA966002E175B /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3FBE1229EAA966002E175B /* DateFormatter.swift */; };
 		7B66183E29D92AF40032A0AF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66183D29D92AF40032A0AF /* UserData.swift */; };
 		7B66183F29D92AF40032A0AF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66183D29D92AF40032A0AF /* UserData.swift */; };
 		7B66184029D92AF40032A0AF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B66183D29D92AF40032A0AF /* UserData.swift */; };
@@ -143,6 +149,8 @@
 		7B2498F129DA7F2F00CDD93E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		7B2498F529DA828500CDD93E /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		7B30910929E2B592003E3346 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		7B3FBE0D29EA660B002E175B /* ExamDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamDuration.swift; sourceTree = "<group>"; };
+		7B3FBE1229EAA966002E175B /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		7B66183D29D92AF40032A0AF /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		7B66184329D92C600032A0AF /* LogInPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPost.swift; sourceTree = "<group>"; };
 		7B66184729D92C690032A0AF /* LogInRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRes.swift; sourceTree = "<group>"; };
@@ -308,6 +316,14 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
+		7B3FBE1129EAA955002E175B /* DateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				7B3FBE1229EAA966002E175B /* DateFormatter.swift */,
+			);
+			path = DateFormatter;
+			sourceTree = "<group>";
+		};
 		7B66183C29D92AC00032A0AF /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +426,7 @@
 		7B8757BC29D835E000F87C04 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7B3FBE1129EAA955002E175B /* DateFormatter */,
 				7BBA57DF29DBD88C00203220 /* UIModifier */,
 				7B8757BD29D835E900F87C04 /* Timer */,
 				7B66187529D973B40032A0AF /* DecimelLimit */,
@@ -446,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				7BDE281429E407250053DFB0 /* TimerCountdown.swift */,
+				7B3FBE0D29EA660B002E175B /* ExamDuration.swift */,
 			);
 			path = CountDown;
 			sourceTree = "<group>";
@@ -613,9 +631,11 @@
 				1089A5CE29D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F556D29D49F6200212C6D /* DrugExam_2020App.swift in Sources */,
 				7B693A8C29E13EE600DF5D52 /* LoadingAnimationCircle.swift in Sources */,
+				7B3FBE1329EAA966002E175B /* DateFormatter.swift in Sources */,
 				7B66186D29D96B5C0032A0AF /* ExamResultInfo.swift in Sources */,
 				7BBA57EE29DC20D400203220 /* ExamResModel.swift in Sources */,
 				7B66186429D95C320032A0AF /* UpcomingExamInfo.swift in Sources */,
+				7B3FBE0E29EA660B002E175B /* ExamDuration.swift in Sources */,
 				10153C2829D69B7F000EEB8D /* ExamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,10 +644,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B3FBE1429EAA966002E175B /* DateFormatter.swift in Sources */,
 				7B66185E29D951FD0032A0AF /* ToastNotification.swift in Sources */,
 				10153C2929D69B7F000EEB8D /* ExamView.swift in Sources */,
 				7BBA57EF29DC20D400203220 /* ExamResModel.swift in Sources */,
 				7B693A8D29E13EE600DF5D52 /* LoadingAnimationCircle.swift in Sources */,
+				7B3FBE0F29EA660B002E175B /* ExamDuration.swift in Sources */,
 				1089A5CC29D58B11002CD74F /* FloatingSecureTextField.swift in Sources */,
 				7B2498EE29DA7E0E00CDD93E /* QuestionInfo.swift in Sources */,
 				7B66186E29D96B5C0032A0AF /* ExamResultInfo.swift in Sources */,
@@ -688,9 +710,11 @@
 				1089A5D029D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F558A29D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift in Sources */,
 				7B693A8E29E13EE600DF5D52 /* LoadingAnimationCircle.swift in Sources */,
+				7B3FBE1529EAA966002E175B /* DateFormatter.swift in Sources */,
 				7B66186F29D96B5C0032A0AF /* ExamResultInfo.swift in Sources */,
 				7BBA57F029DC20D400203220 /* ExamResModel.swift in Sources */,
 				7B66186629D95C320032A0AF /* UpcomingExamInfo.swift in Sources */,
+				7B3FBE1029EA660B002E175B /* ExamDuration.swift in Sources */,
 				10153C2A29D69B7F000EEB8D /* ExamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

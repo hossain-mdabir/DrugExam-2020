@@ -13,6 +13,8 @@ struct DashboardView: View {
     
     @StateObject var timeCounter = TimeCounter()
     
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State var milSceToSec: Int64 = 0
@@ -22,8 +24,10 @@ struct DashboardView: View {
 //        return toDate
 //    }
     @State var date = Date()
-    @State var count = 2
     
+    @State private var goExam: Bool = false
+    @State var isToast: Bool = false
+    @State var msg: String = ""
     
     var body: some View {
         ZStack {
@@ -48,18 +52,26 @@ struct DashboardView: View {
                 .frame(maxWidth: .infinity, minHeight: 60)
                 .background(Color("NavBar"))
                 .onReceive(timer) { _ in
-                    count += 2
                     
                     if milSceToSec > 0 {
                         milSceToSec -= 1
-                        upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec = milSceToSec
-                        //                    date = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())!
+                        
+                        if milSceToSec == 0 {
+                            upcomingExamInfo.getUpcomingExamInfo { (response, error) in
+                                
+                                timeCounter.updateCounter(counter: milSceToSec)
+                                print("timeRead \(TimeCounter().timeRead)")
+                            }
+                        }
+                        
+                        upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec = (upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0) - 1
+                        upcomingExamInfo.upcomingExam.objResponse?.countdown = timeCounter.timeRead
+//                    date = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())!
                         timeCounter.updateCounter(counter: milSceToSec)
+                        
+                        print("milSceToSec : \(milSceToSec)")
+                        print("remaingTimeInMiliSec : \(upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)")
                     }
-                    
-//                    upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec = milSceToSec
-                    print("milSceToSec :- \(milSceToSec)")
-                    print("remaingTimeInMiliSec :- \(upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)")
                 }
                 
                 VStack {
@@ -77,7 +89,7 @@ struct DashboardView: View {
                             Spacer()
                             VStack(alignment: .leading, spacing: 10) {
                                 Text("\(upcomingExamInfo.upcomingExam.objResponse?.examDateTime ?? "")")
-                                Text("\(upcomingExamInfo.upcomingExam.objResponse?.examName ?? "")")
+                                Text("\(getDate(dateStr: upcomingExamInfo.upcomingExam.objResponse?.examDateTime ?? ""))")
                                 Text("\(upcomingExamInfo.upcomingExam.objResponse?.examDuration ?? 0) minutes")
                             }
                             Spacer()
@@ -95,34 +107,55 @@ struct DashboardView: View {
                 .padding(5)
                 .font(.system(size: 16, weight: .bold))
                 .background(Color.white)
-                .cornerRadius(10)
+                .cornerRadius(5)
                 .shadow(color: Color.gray.opacity(0.3), radius: 3, x: 3, y: 3)
                 .shadow(color: Color.gray.opacity(0.3), radius: 3, x: -3, y: -3)
                 .padding(10)
                 
+                NavigationLink("", destination: ExamView(upcomingExam: $upcomingExamInfo.upcomingExam), isActive: $goExam)
                 
                 HStack(spacing: 10) {
-                    NavigationLink(destination: ExamView(upcomingExam: upcomingExamInfo.upcomingExam)) {
-                        VStack {
-                            ZStack {
-                                Circle()
-                                    .stroke(Color("NavBar"), lineWidth: 10)
-                                    .frame(width: 70, height: 70, alignment: .center)
-                                Text("START")
-                                    .font(.system(size: 16, weight: .heavy))
-                                    .foregroundColor(Color("NavBar"))
+//                    NavigationLink(destination: ExamView(upcomingExam: $upcomingExamInfo.upcomingExam)) {
+                        Button {
+                            if upcomingExamInfo.upcomingExam.objResponse?.examFlag == 0 {
+                                isToast = true
+                                msg = "Exam not started. Please try again later."
+                            } else if upcomingExamInfo.upcomingExam.objResponse?.examFlag == 2 {
+                                isToast = true
+                                msg = "Exam finished. Please try again later."
+                            } else if upcomingExamInfo.upcomingExam.objResponse?.examFlag == 1 {
+                                 if upcomingExamInfo.upcomingExam.objResponse?.examStatus == 0 {
+                                     goExam = true
+                                     print("Will go to give exam")
+                                 } else {
+                                     isToast = true
+                                     msg = "Exam already submitted"
+                                 }
+                            } else {
+                                print("Nothing will happen with exam Button")
                             }
-                            
-                            Text("START EXAM")
-                                .font(.title3.weight(.bold))
-                                .foregroundColor(Color.primary.opacity(upcomingExamInfo.upcomingExam.statusCode == 200 ? 1 : 0.5))
-                                .padding(.vertical)
+                        } label: {
+                            VStack {
+                                ZStack {
+                                    Circle()
+                                        .stroke(Color("NavBar"), lineWidth: 10)
+                                        .frame(width: 70, height: 70, alignment: .center)
+                                    Text("START")
+                                        .font(.system(size: 16, weight: .heavy))
+                                        .foregroundColor(Color("NavBar"))
+                                }
+                                
+                                Text("START EXAM")
+                                    .font(.title3.weight(.bold))
+                                    .foregroundColor(Color.primary.opacity(upcomingExamInfo.upcomingExam.statusCode == 200 ? 1 : 0.5))
+                                    .padding(.vertical)
+                            }
+                            .frame(maxWidth: .infinity, minHeight: 200)
+                            .background(Color.gray.opacity(0.3))
+                            .cornerRadius(10)
                         }
-                        .frame(maxWidth: .infinity, minHeight: 200)
-                        .background(Color.gray.opacity(0.3))
-                        .cornerRadius(10)
-                    }
-                    .disabled(milSceToSec <= 0)
+//                    }
+//                        .disabled(milSceToSec > 0)
                     
                     NavigationLink(destination: ExamResultView()) {
                         VStack {
@@ -180,15 +213,22 @@ struct DashboardView: View {
         }
         .onAppear {
             upcomingExamInfo.getUpcomingExamInfo { (response, error) in
-                milSceToSec = (upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0) / 1000
+                let examTime: Int64 = Int64((upcomingExamInfo.upcomingExam.objResponse?.examDuration ?? 0) * 60)
+                milSceToSec = (((upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0) / 1000) - examTime)
+                
                 timeCounter.updateCounter(counter: milSceToSec)
 //                TimeCounter(counter: milSceToSec)
                 print("timeRead \(TimeCounter().timeRead)")
-                
+
 //                toDate = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())!
+                print("examTime-on : \(examTime)")
                 print("milSceToSec-on : \(milSceToSec)")
             }
         }
+        .onDisappear {
+            print("Disappearing from Dashboard")
+        }
+        .toastNotification(isToast: $isToast, msg: $msg)
         .navigationBarBackButtonHidden(true)
     }
 }

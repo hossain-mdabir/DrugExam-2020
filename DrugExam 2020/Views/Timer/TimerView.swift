@@ -44,6 +44,7 @@ class TimeCounter: ObservableObject {
             print("timeRead-method \(timeRead)")
         }
     }
+    
     func convertRedableTime2(sec: Int64) {
         if(sec > 0){
             

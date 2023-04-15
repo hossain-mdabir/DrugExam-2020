@@ -26,4 +26,5 @@ struct UpcomingExamData: Decodable, Hashable {
     var examFlag: Int?
     var remainingTime: String?
     var remaingTimeInMiliSec: Int64?
+    var countdown: String?
 }

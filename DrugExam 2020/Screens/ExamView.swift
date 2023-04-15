@@ -11,7 +11,7 @@ import UIKit
 struct ExamView: View {
     
     // MARK: - PROPERTY
-    @State var upcomingExam : UpcomingExam
+    @Binding var upcomingExam : UpcomingExam
     // Dismiss view
     @State private var buttonOffset: CGSize = .zero
     @State private var isButtonHidden: Bool = false
@@ -30,13 +30,16 @@ struct ExamView: View {
     @State private var isSubmittedPopUp: Bool = false
     @State private var examRes = ResultInfo()
     @State private var timeRead = ""
+    @State private var milSecToSec: Int64 = 0
     
     //Loading Animation
     @State var isLoadingAnimation: Bool = false
     
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @StateObject var timeCounter = TimeCounter()
+    @StateObject var examDuration = ExamDuration()
+    @State private var isExamPost: Bool = false
     
     
 //    init() {
@@ -64,16 +67,17 @@ struct ExamView: View {
             VStack {
                 VStack {
                     HStack {
-                        Button(action: {
+                        Button {
                             self.mode.wrappedValue.dismiss()
-                        }, label: {
+                        } label: {
                             Image(systemName: "chevron.left")
                                 .font(.title3.weight(.bold))
                                 .foregroundColor(Color.white)
                                 .padding(.horizontal, 5)
-                        })
+                        }
                         
-                        Text("\(timeRead)")
+//                        Text("\(timeRead)")
+                        Text("\(examDuration.timeRead)")
                             .font(.title2.weight(.bold))
                             .foregroundColor(Color.white)
                             .padding(10)
@@ -107,7 +111,36 @@ struct ExamView: View {
                         })
                     }
                     .frame(maxWidth: .infinity, maxHeight: 60)
-                    
+                    .onReceive(timer) { _ in
+                        
+                        if milSecToSec > 0 {
+                            milSecToSec -= 1
+                            
+                            examDuration.updateCounter(counter: milSecToSec)
+                            
+                            if !isExamPost {
+                                if milSecToSec <= 0 {
+                                    postExam()
+                                } else {
+                                    print("Exam will not be submitted")
+                                }
+                            }
+                        }
+                        
+//                        if upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0 > 0 {
+//
+//                            upcomingExam.objResponse?.remaingTimeInMiliSec = (upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0) - 1
+//                            //                    date = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())!
+//                            print("Exam VIew \(upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)")
+//                            timeCounter.updateCounter(counter: upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)
+//                            let formatter = DateComponentsFormatter()
+//                            formatter.allowedUnits = [.day, .hour, .minute, .second]
+//                            formatter.unitsStyle = .abbreviated
+//
+//                            let formattedString = formatter.string(from: TimeInterval(upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0))!
+//                            timeRead = formattedString
+//                        }
+                    }
                     
                     if !isButtonHidden {
                         VStack {
@@ -190,36 +223,36 @@ struct ExamView: View {
                                     }
                                     buttonOpacity = geometry.frame(in: .global).midY
                                 })
-                            //                            .gesture(
-                            //                                DragGesture()
-                            //                                    .onChanged { gesture in
-                            //                                        if gesture.translation.height < 0 {
-                            //                                            isButtonHidden = true
-                            //                                            buttonOpacity = 0
-                            //                                            print("isButtonHidden : \(isButtonHidden)")
-                            //                                        } else {
-                            //                                            isButtonHidden = false
-                            //                                            buttonOpacity = 1
-                            //                                            print("isButtonHidden1 : \(isButtonHidden)")
-                            //                                        }
-                            //
-                            //                                        //                                        if abs(buttonOffset.height) <= 5 {
-                            //                                        //                                            buttonOffset = gesture.translation
-                            //                                        //
-                            //                                        //                                            withAnimation(.linear(duration: 0.25)) {
-                            //                                        //                                                isButtonHidden = true
-                            //                                        //                                            }
-                            //                                        //                                        }
-                            //                                    }
-                            //                                    .onEnded { gesture in
-                            //                                        buttonOpacity = geometry.frame(in: .global).midY
-                            //                                        buttonOffset = .zero
-                            //
-                            //                                        withAnimation(.linear(duration: 0.25)) {
-                            //
-                            //                                        }
-                            //                                    }
-                            //                            ) //: GESTURE
+//                            .gesture(
+//                                DragGesture()
+//                                    .onChanged { gesture in
+//                                        if gesture.translation.height < 0 {
+//                                            isButtonHidden = true
+//                                            buttonOpacity = 0
+//                                            print("isButtonHidden : \(isButtonHidden)")
+//                                        } else {
+//                                            isButtonHidden = false
+//                                            buttonOpacity = 1
+//                                            print("isButtonHidden1 : \(isButtonHidden)")
+//                                        }
+//
+//                                        //                                        if abs(buttonOffset.height) <= 5 {
+//                                        //                                            buttonOffset = gesture.translation
+//                                        //
+//                                        //                                            withAnimation(.linear(duration: 0.25)) {
+//                                        //                                                isButtonHidden = true
+//                                        //                                            }
+//                                        //                                        }
+//                                    }
+//                                    .onEnded { gesture in
+//                                        buttonOpacity = geometry.frame(in: .global).midY
+//                                        buttonOffset = .zero
+//
+//                                        withAnimation(.linear(duration: 0.25)) {
+//
+//                                        }
+//                                    }
+//                            ) //: GESTURE
                         }
                         if qesDatas.count > 0 {
                             ForEach(0 ..< qesDatas.count, id: \.self) { data in
@@ -237,7 +270,10 @@ struct ExamView: View {
             .preferredColorScheme(.light)
             .onAppear(perform: {
                 getQuestionInfo()
-                timeCounter.updateCounter(counter: upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)
+                
+                milSecToSec = ((upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0) / 1000)
+                
+                examDuration.updateCounter(counter: milSecToSec)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     let qesList: [QuestionInfo] = QuestionData().getQuestion(queryData: "all", queryType: "all")
                     for p in qesList {
@@ -249,22 +285,7 @@ struct ExamView: View {
                 // Scroll bouncing effect on/off
                 UIScrollView.appearance().bounces = false
             })
-            .onReceive(timer) { _ in
-                
-                if upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0 > 0 {
-                    
-                    upcomingExam.objResponse?.remaingTimeInMiliSec = (upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0) - 1
-                    //                    date = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())!
-                    print("Exam VIew \(upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)")
-                    timeCounter.updateCounter(counter: upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)
-                    let formatter = DateComponentsFormatter()
-                    formatter.allowedUnits = [.day, .hour, .minute, .second]
-                    formatter.unitsStyle = .abbreviated
-                    
-                    let formattedString = formatter.string(from: TimeInterval(upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0))!
-                    timeRead = formattedString
-                }
-            }
+            
             
             // MARK: - PopUp's
             // Order post confirmation PopUp
@@ -274,6 +295,7 @@ struct ExamView: View {
                 examSubmitPopUp()
                     .cornerRadius(5)
                     .padding(.horizontal, 40)
+                    .zIndex(1)
             }
             
             // Order post PopUp
@@ -283,6 +305,18 @@ struct ExamView: View {
                 examSubmittedPopUp()
                     .cornerRadius(5)
                     .padding(.horizontal, 40)
+                    .zIndex(1)
+            }
+            
+            // Loading Animation
+            if self.isLoadingAnimation {
+                VStack(alignment: .center) {
+                    LoadingAnimationCircle()
+                        .frame(alignment: .center)
+                    Text("Please wait...")
+                        .foregroundColor(Color.gray)
+                }
+                .zIndex(2)
             }
         }
     }
@@ -290,16 +324,16 @@ struct ExamView: View {
     // MARK: - Exam Submission PopUp
     @ViewBuilder
     func examSubmitPopUp() -> some View {
-        ZStack {
-            // Loading Animation
-            VStack(alignment: .center) {
-                if self.isLoadingAnimation {
-                    LoadingAnimationCircle()
-                        .frame(alignment: .center)
-                    Text("Please wait...")
-                        .foregroundColor(Color.gray)
-                }
-            }
+//        ZStack {
+//            // Loading Animation
+//            VStack(alignment: .center) {
+//                if self.isLoadingAnimation {
+//                    LoadingAnimationCircle()
+//                        .frame(alignment: .center)
+//                    Text("Please wait...")
+//                        .foregroundColor(Color.gray)
+//                }
+//            }
             
             VStack {
                 VStack(alignment: .center) {
@@ -348,7 +382,7 @@ struct ExamView: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color("NavBar"))
             }
-        }
+//        }
         .padding(10)
         .aspectRatio(contentMode: .fit)
         .background(Color.white)
@@ -443,7 +477,7 @@ struct ExamView: View {
         } else if grade > 70 {
             return "A-"
         } else if grade > 60 {
-            return "B-"
+            return "B"
         } else if grade > 50 {
             return "C"
         } else {
@@ -484,7 +518,10 @@ struct ExamView: View {
         examPost(post: post) { (response, error) in
             if response?.statusCode == 200 {
                 examRes = response?.objResponse ?? ResultInfo()
-
+                
+                // Exam posted flag
+                isExamPost = true
+                
                 // Delete all stored questions on successful submission
                 QuestionData().deleteAllQuestion()
 
@@ -506,7 +543,8 @@ struct ExamView: View {
 }
 
 struct ExamView_Previews: PreviewProvider {
+    @State static var upcomingExam = UpcomingExam()
     static var previews: some View {
-        ExamView(upcomingExam: UpcomingExam())
+        ExamView(upcomingExam: $upcomingExam)
     }
 }
