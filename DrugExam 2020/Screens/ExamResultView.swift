@@ -35,18 +35,19 @@ struct ExamResultView: View {
                 .background(Color("NavBar"))
                 .padding(.top, 1)
                 
-//                ForEach(0...1, id: \.self) { _ in
+                // Result Data
+                if examResultInfo.examResult.statusCode == 200 {
                     VStack(alignment: .leading, spacing: 10) {
                         HStack {
-                            Text("Exam No: \(examResultInfo.examResultData.examNo ?? 0)")
+                            Text("Exam No: \(examResultInfo.examResult.objResponse?.examNo ?? 0)")
                             Spacer()
-                            Text("Date: \(examResultInfo.examResultData.examDate ?? "")")
+                            Text("Date: \(examResultInfo.examResult.objResponse?.examDate ?? "")")
                             Spacer()
                         }
                         .foregroundColor(Color.red)
                         .font(.system(size: width > 600 ? 25 : 18))
                         
-                        Text("\(examResultInfo.examResultData.examname ?? "")")
+                        Text("\(examResultInfo.examResult.objResponse?.examname ?? "")")
                             .foregroundColor(Color.gray)
                         
                         HStack {
@@ -56,8 +57,8 @@ struct ExamResultView: View {
                                     Text("Obtain Markas")
                                 }
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("\(examResultInfo.examResultData.totalmarks ?? 0)")
-                                    Text("\(examResultInfo.examResultData.obtainMarks ?? 0.0, specifier: "%.1f")")
+                                    Text("\(examResultInfo.examResult.objResponse?.totalmarks ?? 0)")
+                                    Text("\(examResultInfo.examResult.objResponse?.obtainMarks ?? 0.0, specifier: "%.1f")")
                                 }
                                 .foregroundColor(Color.gray)
                             }
@@ -68,8 +69,8 @@ struct ExamResultView: View {
                                     Text("Obtain Grade")
                                 }
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("\(examResultInfo.examResultData.duration ?? 0)")
-                                    Text("\(examResultInfo.examResultData.grade ?? "")")
+                                    Text("\(examResultInfo.examResult.objResponse?.duration ?? 0)")
+                                    Text("\(examResultInfo.examResult.objResponse?.grade ?? "")")
                                 }
                                 .foregroundColor(Color.gray)
                             }
@@ -85,7 +86,19 @@ struct ExamResultView: View {
                     .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 3, y: 3)
                     .shadow(color: Color.gray.opacity(0.3), radius: 5, x: -3, y: -3)
                     .padding(10)
-//                }
+                } else {
+                    VStack {
+                        Spacer()
+                        Image("no-data")
+                            .resizable()
+                            .foregroundColor(Color.red.opacity(0.5))
+                            .frame(width: 100, height: 100)
+                        Text(examResultInfo.examResult.message ?? "")
+                            .font(.title.weight(.bold))
+                            .foregroundColor(Color.secondary)
+                        Spacer()
+                    }
+                }
                 Spacer()
             }
         }

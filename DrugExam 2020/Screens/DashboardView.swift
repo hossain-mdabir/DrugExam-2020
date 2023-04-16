@@ -40,7 +40,7 @@ struct DashboardView: View {
 //                        TimerView(milSce: milSceToSec, setDate: toDate(toDate: Int(milSceToSec)))
 //                    TimerCountdown(count: $count, setDate: $date)
                         Text("\(timeCounter.timeRead)")
-                    } else {
+                    } else if upcomingExamInfo.upcomingExam.statusCode == 200 && milSceToSec <= 0 {
                         // Coming from API
 //                        Text("\(upcomingExamInfo.upcomingExam.objResponse?.remainingTime ?? "")")
                         Text("Exam is started")
@@ -88,15 +88,17 @@ struct DashboardView: View {
                             }
                             Spacer()
                             VStack(alignment: .leading, spacing: 10) {
-                                Text("\(upcomingExamInfo.upcomingExam.objResponse?.examDateTime ?? "")")
-                                Text("\(getDate(dateStr: upcomingExamInfo.upcomingExam.objResponse?.examDateTime ?? ""))")
+                                Text("\(getDate(dateStr: upcomingExamInfo.upcomingExam.objResponse?.examDateTime ?? "") ?? "")")
+                                Text("\(getTime(dateStr: upcomingExamInfo.upcomingExam.objResponse?.examDateTime ?? "") ?? "")")
                                 Text("\(upcomingExamInfo.upcomingExam.objResponse?.examDuration ?? 0) minutes")
                             }
                             Spacer()
                         }
-                        Text("Exam button will be activated on exam time")
-                            .foregroundColor(Color("NavBar"))
-                            .padding(.top, 5)
+                        if upcomingExamInfo.upcomingExam.statusCode == 200 && milSceToSec >= 0 {
+                            Text("Exam button will be activated on exam time")
+                                .foregroundColor(Color("NavBar"))
+                                .padding(.top, 5)
+                        }
                     } else {
                         Text("No Exam Today")
                             .foregroundColor(Color("NavBar"))
@@ -147,7 +149,7 @@ struct DashboardView: View {
                                 
                                 Text("START EXAM")
                                     .font(.title3.weight(.bold))
-                                    .foregroundColor(Color.primary.opacity(upcomingExamInfo.upcomingExam.statusCode == 200 ? 1 : 0.5))
+                                    .foregroundColor(Color.primary.opacity(upcomingExamInfo.upcomingExam.statusCode == 200 && milSceToSec > 0 ? 0.5 : (upcomingExamInfo.upcomingExam.statusCode != 200 ? 0.5 : 1)))
                                     .padding(.vertical)
                             }
                             .frame(maxWidth: .infinity, minHeight: 200)
@@ -155,7 +157,7 @@ struct DashboardView: View {
                             .cornerRadius(10)
                         }
 //                    }
-//                        .disabled(milSceToSec > 0)
+                        .disabled(upcomingExamInfo.upcomingExam.statusCode != 200 || milSceToSec > 0)
                     
                     NavigationLink(destination: ExamResultView()) {
                         VStack {
@@ -230,6 +232,41 @@ struct DashboardView: View {
         }
         .toastNotification(isToast: $isToast, msg: $msg)
         .navigationBarBackButtonHidden(true)
+    }
+    func getTime(dateStr: String) -> String? {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "EEE, dd-MMM-yyyy hh:mm a"// -- from format
+        
+        //first, convert string to Date
+        let dt = dateFormatter.date(from: dateStr)! // "2020-03-10"
+        
+        //then convert Date back to String in a different format
+        dateFormatter.dateFormat = "hh:mm a"//  -- to format
+        var date = dateFormatter.string(from: dt)
+        print("string-dat: \(dateFormatter.string(from: dt))")
+        print("dat: \(date)")
+        
+        return date
+    }
+    
+    func getDate(dateStr: String) -> String? {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "EEE, dd-MMM-yyyy hh:mm a"// -- from format
+        
+        //first, convert string to Date
+        let dt = dateFormatter.date(from: dateStr)! // "2020-03-10"
+        
+        //then convert Date back to String in a different format
+        dateFormatter.dateFormat = "EEE, dd-MMM-yyyy"//  -- to format
+        var date = dateFormatter.string(from: dt)
+        print("string-dat: \(dateFormatter.string(from: dt))")
+        print("dat: \(date)")
+        
+        return date
     }
 }
 

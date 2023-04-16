@@ -16,6 +16,7 @@ struct LogInView: View {
     @State private var goDashboard: Bool = false
     @State private var isNeedUpdate: Bool = false
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @FocusState private var isFocused: Bool
     
     // Open's Link
     @Environment(\.openURL) var openURL
@@ -36,6 +37,7 @@ struct LogInView: View {
                         .foregroundColor(Color("NavBar"))
                     
                     FloatingTextField(title: "username", text: $userid)
+                        .focused($isFocused)
                 }
                 
                 Divider()
@@ -45,12 +47,14 @@ struct LogInView: View {
                         .foregroundColor(Color("NavBar"))
                     
                     FloatingSecureTextField(title: "password", text: $password, isSecure: true)
+                        .focused($isFocused)
                 }
                 
                 Divider()
                 NavigationLink("", destination: DashboardView(), isActive: $goDashboard)
                 
                 Button(action: {
+                    isFocused = false
                     logIn()
                 }, label: {
                     Text("L O G I N")
@@ -76,6 +80,7 @@ struct LogInView: View {
         }
         // MARK: - Toast Alert's
         .toastNotification(isToast: $isToast, msg: $msg)
+        .zIndex(0)
         .toolbarColorScheme(.light, for: .navigationBar)
         
         // App version update

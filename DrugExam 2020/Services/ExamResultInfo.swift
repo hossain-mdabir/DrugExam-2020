@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class ExamResultInfo: ObservableObject {
-    @Published var examResultData = ExamResultData()
+    @Published var examResult = ExamResult()
     
     func getExamResult(completionHandler: @escaping ((ExamResult?, Error?)->Void)) {
         
@@ -30,7 +30,7 @@ class ExamResultInfo: ObservableObject {
                 
                 let response = try? JSONDecoder().decode(ExamResult.self, from: value)
                 
-                self.examResultData = response?.objResponse ?? ExamResultData()
+                self.examResult = response ?? ExamResult()
                 
                 print("Exam Result response: \(response)")
                 completionHandler(response, nil)
