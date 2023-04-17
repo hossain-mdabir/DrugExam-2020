@@ -149,6 +149,7 @@
 		7B2498F129DA7F2F00CDD93E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		7B2498F529DA828500CDD93E /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		7B30910929E2B592003E3346 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		7B3F4F9629ED4835006EB9A2 /* DrugExam-2020-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DrugExam-2020-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7B3FBE0D29EA660B002E175B /* ExamDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamDuration.swift; sourceTree = "<group>"; };
 		7B3FBE1229EAA966002E175B /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		7B66183D29D92AF40032A0AF /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -228,6 +229,7 @@
 		103F556B29D49F6200212C6D /* DrugExam 2020 */ = {
 			isa = PBXGroup;
 			children = (
+				7B3F4F9629ED4835006EB9A2 /* DrugExam-2020-Info.plist */,
 				7BDE281229E4070A0053DFB0 /* CountDown */,
 				7B8757BC29D835E000F87C04 /* Extensions */,
 				7B66185829D951FD0032A0AF /* AlertsAndWarning */,
@@ -860,6 +862,7 @@
 				DEVELOPMENT_TEAM = 94AJ5AU8D9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DrugExam-2020-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = DrugExam;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -892,6 +895,7 @@
 				DEVELOPMENT_TEAM = 94AJ5AU8D9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DrugExam-2020-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = DrugExam;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -210,6 +210,18 @@ struct DashboardView: View {
                 .multilineTextAlignment(.leading)
                 Spacer()
             }
+            
+            // MARK: - PopUp's
+            // Order post confirmation PopUp
+            if isToast {
+                Color.gray
+                    .opacity(0.5)
+                alertPopUp()
+                    .cornerRadius(5)
+                    .padding(.horizontal, 40)
+                    .zIndex(1)
+            }
+            
         }
         .onAppear {
             upcomingExamInfo.getUpcomingExamInfo { (response, error) in
@@ -228,7 +240,7 @@ struct DashboardView: View {
         .onDisappear {
             print("Disappearing from Dashboard")
         }
-        .toastNotification(isToast: $isToast, msg: $msg)
+//        .toastNotification(isToast: $isToast, msg: $msg)
         .navigationBarBackButtonHidden(true)
     }
     func getTime(dateStr: String) -> String? {
@@ -265,6 +277,37 @@ struct DashboardView: View {
         print("dat: \(date)")
         
         return date
+    }
+    
+    // MARK: - Exam Submitted PopUp
+    @ViewBuilder
+    func alertPopUp() -> some View {
+        VStack(alignment: .leading) {
+            Text("Exam Submission")
+                .font(.title2.weight(.semibold))
+                .foregroundColor(Color("NavBar"))
+                .padding(.vertical)
+            
+            VStack(alignment: .leading, spacing: 5) {
+                Text("\(msg)")
+            }
+            
+            HStack {
+                Spacer()
+                Button(action: {
+                    withAnimation { self.isToast = false }
+                }, label: {
+                    Text("Ok")
+                        .padding(.vertical, 5)
+                        .padding(.horizontal)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color("NavBar"))
+                })
+            }
+        }
+        .padding()
+        .aspectRatio(contentMode: .fit)
+        .background(Color.white)
     }
 }
 
