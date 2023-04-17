@@ -18,18 +18,22 @@ struct ExamView: View {
     @State private var buttonOpacity: Double = 1
     
     @State var isOpen = false
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
+    // Dismiss view
+    @Environment(\.dismiss) var dismiss//.presentationMode: Binding<PresentationMode>
+    
     @State var qesDatas: [QuestionInfo] = []
     @State private var queryData = "all"
     @State private var queryType = "all"
     
+    @State private var allQes = 0
     @State private var answeredQes = 0
     @State private var notAnsweredQes = 0
+    @State private var markedQes = 0
     
     @State private var isSubmitPopUp: Bool = false
     @State private var isSubmittedPopUp: Bool = false
     @State private var examRes = ResultInfo()
-    @State private var timeRead = ""
     @State private var milSecToSec: Int64 = 0
     
     //Loading Animation
@@ -54,8 +58,10 @@ struct ExamView: View {
         let qesList: [QuestionInfo] = QuestionData().getQuestion(queryData: queryData, queryType: queryType)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            if qesDatas.count == 0 {
             for p in qesList {
-                self.qesDatas.append(p)
+                    self.qesDatas.append(p)
+                }
             }
         }
         
@@ -68,7 +74,8 @@ struct ExamView: View {
                 VStack {
                     HStack {
                         Button {
-                            self.mode.wrappedValue.dismiss()
+                            // Dismiss from view
+                            dismiss()
                         } label: {
                             Image(systemName: "chevron.left")
                                 .font(.title3.weight(.bold))
@@ -76,12 +83,11 @@ struct ExamView: View {
                                 .padding(.horizontal, 5)
                         }
                         
-//                        Text("\(timeRead)")
                         Text("\(examDuration.timeRead)")
                             .font(.title2.weight(.bold))
                             .foregroundColor(Color.white)
                             .padding(10)
-                            
+                        
                         Spacer()
                         Button(action: {
                             print("perQesMark \(perQesMark())")
@@ -89,18 +95,8 @@ struct ExamView: View {
                             print("grade \(grade())")
                             print("gpa \(gpa())")
                             
-                            // Making 0
-                            answeredQes = 0
-                            notAnsweredQes = 0
-                            
-                            // Question count
-                            for p in qesData() {
-                                if p.chosenAns != "N" {
-                                    answeredQes += 1
-                                } else if p.chosenAns == "N" {
-                                    notAnsweredQes += 1
-                                }
-                            }
+                            // Update Exam Status (UI)
+                            updateExam()
                             
                             withAnimation { self.isSubmitPopUp = true }
                         }, label: {
@@ -126,24 +122,11 @@ struct ExamView: View {
                                 }
                             }
                         }
-                        
-//                        if upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0 > 0 {
-//
-//                            upcomingExam.objResponse?.remaingTimeInMiliSec = (upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0) - 1
-//                            //                    date = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())!
-//                            print("Exam VIew \(upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)")
-//                            timeCounter.updateCounter(counter: upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0)
-//                            let formatter = DateComponentsFormatter()
-//                            formatter.allowedUnits = [.day, .hour, .minute, .second]
-//                            formatter.unitsStyle = .abbreviated
-//
-//                            let formattedString = formatter.string(from: TimeInterval(upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0))!
-//                            timeRead = formattedString
-//                        }
                     }
                     
-                    if !isButtonHidden {
-                        VStack {
+                    VStack {
+                        
+                        if !isButtonHidden {
                             HStack {
                                 Button(action: {
                                     withAnimation {
@@ -151,8 +134,12 @@ struct ExamView: View {
                                         getQestionData()
                                     }
                                 }, label: {
-                                    Text("Collapse All")
-                                        .buttonModifier()
+                                    HStack(spacing: 0) {
+                                        Image(systemName: "list.bullet")
+                                            .foregroundColor(Color("NavBar"))
+                                        Text("Collapse All")
+                                    }
+                                    .buttonModifier()
                                 })
                                 Button(action: {
                                     withAnimation {
@@ -160,49 +147,89 @@ struct ExamView: View {
                                         getQestionData()
                                     }
                                 }, label: {
-                                    Text("Expand All")
-                                        .buttonModifier()
+                                    HStack(spacing: 0) {
+                                        Image(systemName: "list.bullet")
+                                            .foregroundColor(Color("NavBar"))
+                                        Text("Expand All")
+                                    }
+                                    .buttonModifier()
                                 })
                                 Button(action: {
                                     queryData = "1"
                                     queryType = "bookmark"
                                     getQestionData()
                                 }, label: {
-                                    Text("Marked Question")
-                                        .buttonModifier()
-                                })
-                            }
-                            
-                            HStack {
-                                Button(action: {
-                                    queryData = "all"
-                                    queryType = "all"
-                                    getQestionData()
-                                }, label: {
-                                    Text("All Question")
-                                        .buttonModifier()
-                                })
-                                Button(action: {
-                                    queryData = ""
-                                    queryType = "ans"
-                                    getQestionData()
-                                }, label: {
-                                    Text("Answered")
-                                        .buttonModifier()
-                                })
-                                Button(action: {
-                                    queryData = ""
-                                    queryType = "notAns"
-                                    getQestionData()
-                                }, label: {
-                                    Text("Unanswered")
-                                        .buttonModifier()
+                                    HStack(spacing: 0) {
+                                        ZStack {
+                                            Image(systemName: "circle.fill")
+                                                .font(.title2)
+                                                .foregroundColor(Color("NavBar"))
+                                            Text("\(markedQes)")
+                                                .foregroundColor(Color.white)
+                                        }
+                                        Text("Marked Question")
+                                    }
+                                    .buttonModifier()
                                 })
                             }
                         }
-                        .font(.title3)
-                        .padding(5)
+                        
+                        HStack {
+                            Button(action: {
+                                queryData = "all"
+                                queryType = "all"
+                                getQestionData()
+                            }, label: {
+                                HStack(spacing: 0) {
+                                    ZStack {
+                                        Image(systemName: "circle.fill")
+                                            .font(.title2)
+                                            .foregroundColor(Color("NavBar"))
+                                        Text("\(allQes)")
+                                            .foregroundColor(Color.white)
+                                    }
+                                    Text("All Question")
+                                }
+                                .buttonModifier()
+                            })
+                            Button(action: {
+                                queryData = ""
+                                queryType = "ans"
+                                getQestionData()
+                            }, label: {
+                                HStack(spacing: 0) {
+                                    ZStack {
+                                        Image(systemName: "circle.fill")
+                                            .font(.title2)
+                                            .foregroundColor(Color("NavBar"))
+                                        Text("\(answeredQes)")
+                                            .foregroundColor(Color.white)
+                                    }
+                                    Text("Answered")
+                                }
+                                .buttonModifier()
+                            })
+                            Button(action: {
+                                queryData = ""
+                                queryType = "notAns"
+                                getQestionData()
+                            }, label: {
+                                HStack(spacing: 0) {
+                                    ZStack {
+                                        Image(systemName: "circle.fill")
+                                            .font(.title2)
+                                            .foregroundColor(Color("NavBar"))
+                                        Text("\(notAnsweredQes)")
+                                            .foregroundColor(Color.white)
+                                    }
+                                    Text("Unanswered")
+                                }
+                                .buttonModifier()
+                            })
+                        }
                     }
+                    .font(.title3)
+                    .padding(5)
                 }
                 .background(Color("NavBar"))
                 .padding(.top, 1)
@@ -257,7 +284,7 @@ struct ExamView: View {
                         if qesDatas.count > 0 {
                             ForEach(0 ..< qesDatas.count, id: \.self) { data in
                                 
-                                DropdownView(questionInfo: qesDatas[data], isOpen: isOpen)
+                                DropdownView(questionInfo: qesDatas[data], isOpen: isOpen, allQes: $allQes, answeredQes: $answeredQes, notAnsweredQes: $notAnsweredQes, markedQes: $markedQes)
                             }
                         } else {
                             Text("No Q. found in this Filter")
@@ -278,6 +305,11 @@ struct ExamView: View {
                     let qesList: [QuestionInfo] = QuestionData().getQuestion(queryData: "all", queryType: "all")
                     for p in qesList {
                         self.qesDatas.append(p)
+                    }
+                    
+                    // Update Exam Status (UI)
+                    if qesDatas.count > 0 {
+                        updateExam()
                     }
                     print("qesDatas-- \(qesDatas.count)")
                 }
@@ -324,17 +356,6 @@ struct ExamView: View {
     // MARK: - Exam Submission PopUp
     @ViewBuilder
     func examSubmitPopUp() -> some View {
-//        ZStack {
-//            // Loading Animation
-//            VStack(alignment: .center) {
-//                if self.isLoadingAnimation {
-//                    LoadingAnimationCircle()
-//                        .frame(alignment: .center)
-//                    Text("Please wait...")
-//                        .foregroundColor(Color.gray)
-//                }
-//            }
-            
             VStack {
                 VStack(alignment: .center) {
                     Text("Submission Alert!!!")
@@ -382,7 +403,6 @@ struct ExamView: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color("NavBar"))
             }
-//        }
         .padding(10)
         .aspectRatio(contentMode: .fit)
         .background(Color.white)
@@ -408,8 +428,8 @@ struct ExamView: View {
                 Button(action: {
                     withAnimation { self.isSubmittedPopUp = false }
                     
-                    // GO B=back to Dashboard
-                    self.mode.wrappedValue.dismiss()
+                    // Go baback to Dashboard
+                    dismiss()
                 }, label: {
                     Text("Ok")
                         .padding(.vertical, 5)
@@ -482,6 +502,31 @@ struct ExamView: View {
             return "C"
         } else {
             return "F"
+        }
+    }
+//    @State private var functionToPass: () -> Void = {}
+    // Update Exam Status (UI)
+    func updateExam() {
+        // Making 0
+        allQes = 0
+        answeredQes = 0
+        notAnsweredQes = 0
+        markedQes = 0
+        
+        
+        // Question count
+        for p in qesData() {
+            allQes += 1 // All Qes
+            if p.chosenAns != "N" {
+                answeredQes += 1 // Answered Qes
+            } else if p.chosenAns == "N" {
+                notAnsweredQes += 1 // unAnswered Qes
+            }
+            
+            // Marked Qes
+            if p.bookmark == "1" {
+                markedQes += 1 // Marked Qes
+            }
         }
     }
     

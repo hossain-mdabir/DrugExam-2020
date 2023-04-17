@@ -13,8 +13,6 @@ struct DashboardView: View {
     
     @StateObject var timeCounter = TimeCounter()
     
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State var milSceToSec: Int64 = 0

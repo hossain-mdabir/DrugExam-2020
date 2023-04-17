@@ -8,9 +8,10 @@
 import Foundation
 import SwiftUI
 
-extension Text {
+extension View {
     func buttonModifier() -> some View {
         self
+            .font(.system(size: UIScreen.main.bounds.width > 650 ? 18 : 14))
             .foregroundColor(Color.black)
             .frame(maxWidth: .infinity, maxHeight: 60)
             .background(Color.white)

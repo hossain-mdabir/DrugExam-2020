@@ -13,7 +13,7 @@ struct ExamResultView: View {
     @StateObject var examResultInfo = ExamResultInfo()
     
     // Dismiss view
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.dismiss) var dismiss//.presentationMode: Binding<PresentationMode>
     @State private var width = UIScreen.main.bounds.width
     
     var body: some View {
@@ -21,7 +21,8 @@ struct ExamResultView: View {
             VStack {
                 HStack {
                     Button(action: {
-                        self.mode.wrappedValue.dismiss()
+                        // Dismiss from view
+                        dismiss()
                     }, label: {
                         Image(systemName: "chevron.left")
                             .font(.title3.weight(.bold))
