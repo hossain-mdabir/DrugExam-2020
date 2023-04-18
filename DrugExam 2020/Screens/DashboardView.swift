@@ -216,7 +216,7 @@ struct DashboardView: View {
             if isToast {
                 Color.gray
                     .opacity(0.5)
-                alertPopUp()
+                AlertAndWarningView(isToast: $isToast, msg: $msg)
                     .cornerRadius(5)
                     .padding(.horizontal, 40)
                     .zIndex(1)
@@ -229,11 +229,11 @@ struct DashboardView: View {
                 milSceToSec = (((upcomingExamInfo.upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0) / 1000) - examTime)
                 
                 timeCounter.updateCounter(counter: milSceToSec)
-//                TimeCounter(counter: milSceToSec)
+//                TimeCounter(counter: milSceToSec) --
                 print("timeRead \(TimeCounter().timeRead)")
 
-//                toDate = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())!
-                print("examTime-on : \(examTime)")
+//                toDate = Calendar.current.date(byAdding: .second, value: Int(milSceToSec), to: Date())! --
+                print("examTime-on-----111222111222 : \(examTime)")
                 print("milSceToSec-on : \(milSceToSec)")
             }
         }
@@ -272,42 +272,11 @@ struct DashboardView: View {
         
         //then convert Date back to String in a different format
         dateFormatter.dateFormat = "EEE, dd-MMM-yyyy"//  -- to format
-        var date = dateFormatter.string(from: dt)
+        let date = dateFormatter.string(from: dt)
         print("string-dat: \(dateFormatter.string(from: dt))")
         print("dat: \(date)")
         
         return date
-    }
-    
-    // MARK: - Exam Submitted PopUp
-    @ViewBuilder
-    func alertPopUp() -> some View {
-        VStack(alignment: .leading) {
-            Text("Exam Submission")
-                .font(.title2.weight(.semibold))
-                .foregroundColor(Color("NavBar"))
-                .padding(.vertical)
-            
-            VStack(alignment: .leading, spacing: 5) {
-                Text("\(msg)")
-            }
-            
-            HStack {
-                Spacer()
-                Button(action: {
-                    withAnimation { self.isToast = false }
-                }, label: {
-                    Text("Ok")
-                        .padding(.vertical, 5)
-                        .padding(.horizontal)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("NavBar"))
-                })
-            }
-        }
-        .padding()
-        .aspectRatio(contentMode: .fit)
-        .background(Color.white)
     }
 }
 

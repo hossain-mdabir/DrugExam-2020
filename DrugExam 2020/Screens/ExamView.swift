@@ -12,6 +12,8 @@ struct ExamView: View {
     
     // MARK: - PROPERTY
     @Binding var upcomingExam : UpcomingExam
+    @StateObject var questionInfos = QuestionInfos()
+    
     // Dismiss view
     @State private var buttonOffset: CGSize = .zero
     @State private var isButtonHidden: Bool = false
@@ -125,7 +127,6 @@ struct ExamView: View {
                     }
                     
                     VStack {
-                        
                         if !isButtonHidden {
                             HStack {
                                 Button(action: {
@@ -232,7 +233,7 @@ struct ExamView: View {
                     .padding(5)
                 }
                 .background(Color("NavBar"))
-                .padding(.top, 1)
+                .padding(.bottom, isButtonHidden ? -3 : -14)
                 
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0.5) {
@@ -296,22 +297,31 @@ struct ExamView: View {
             .navigationBarBackButtonHidden(true)
             .preferredColorScheme(.light)
             .onAppear(perform: {
-                getQuestionInfo()
-                
                 milSecToSec = ((upcomingExam.objResponse?.remaingTimeInMiliSec ?? 0) / 1000)
-                
                 examDuration.updateCounter(counter: milSecToSec)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    let qesList: [QuestionInfo] = QuestionData().getQuestion(queryData: "all", queryType: "all")
-                    for p in qesList {
-                        self.qesDatas.append(p)
+                
+                self.isLoadingAnimation = true // Loading starts
+                
+                questionInfos.getQuestionInfo { (response, error) in
+                    if response?.statusCode == 200 {
+                        if QuestionData().getQuestion(queryData: "all", queryType: "all").count > 0 {
+                            
+                            let qesList: [QuestionInfo] = QuestionData().getQuestion(queryData: "all", queryType: "all")
+                            for p in qesList {
+                                self.qesDatas.append(p)
+                            }
+                            
+                            // Update Exam Status (UI)
+                            if qesDatas.count > 0 {
+                                updateExam()
+                            }
+                            print("qesDatas-- \(qesDatas.count)")
+                            
+                            self.isLoadingAnimation = false // Loading stops
+                        }
+                    } else {
+                        
                     }
-                    
-                    // Update Exam Status (UI)
-                    if qesDatas.count > 0 {
-                        updateExam()
-                    }
-                    print("qesDatas-- \(qesDatas.count)")
                 }
                 
                 // Scroll bouncing effect on/off

@@ -34,7 +34,6 @@ struct ExamResultView: View {
                 }
                 .foregroundColor(Color.white)
                 .background(Color("NavBar"))
-                .padding(.top, 1)
                 
                 // Result Data
                 if examResultInfo.examResult.statusCode == 200 {

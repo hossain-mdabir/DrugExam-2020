@@ -90,6 +90,12 @@
 		7B693A8C29E13EE600DF5D52 /* LoadingAnimationCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B693A8B29E13EE600DF5D52 /* LoadingAnimationCircle.swift */; };
 		7B693A8D29E13EE600DF5D52 /* LoadingAnimationCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B693A8B29E13EE600DF5D52 /* LoadingAnimationCircle.swift */; };
 		7B693A8E29E13EE600DF5D52 /* LoadingAnimationCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B693A8B29E13EE600DF5D52 /* LoadingAnimationCircle.swift */; };
+		7B6E04B629EE4BE00056D8FA /* AlertAndWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E04B529EE4BE00056D8FA /* AlertAndWarningView.swift */; };
+		7B6E04B729EE4BE00056D8FA /* AlertAndWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E04B529EE4BE00056D8FA /* AlertAndWarningView.swift */; };
+		7B6E04B829EE4BE00056D8FA /* AlertAndWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E04B529EE4BE00056D8FA /* AlertAndWarningView.swift */; };
+		7B6E04BA29EE4C040056D8FA /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E04B929EE4C040056D8FA /* CommentsView.swift */; };
+		7B6E04BB29EE4C040056D8FA /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E04B929EE4C040056D8FA /* CommentsView.swift */; };
+		7B6E04BC29EE4C040056D8FA /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E04B929EE4C040056D8FA /* CommentsView.swift */; };
 		7B8757BF29D835FF00F87C04 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8757BE29D835FF00F87C04 /* Timer.swift */; };
 		7B8757C029D835FF00F87C04 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8757BE29D835FF00F87C04 /* Timer.swift */; };
 		7B8757C129D835FF00F87C04 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8757BE29D835FF00F87C04 /* Timer.swift */; };
@@ -164,6 +170,8 @@
 		7B66187129D96CD60032A0AF /* ExamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResult.swift; sourceTree = "<group>"; };
 		7B66187629D973C20032A0AF /* DecimelLimit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimelLimit.swift; sourceTree = "<group>"; };
 		7B693A8B29E13EE600DF5D52 /* LoadingAnimationCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAnimationCircle.swift; sourceTree = "<group>"; };
+		7B6E04B529EE4BE00056D8FA /* AlertAndWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAndWarningView.swift; sourceTree = "<group>"; };
+		7B6E04B929EE4C040056D8FA /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		7B8757BE29D835FF00F87C04 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		7BBA57E029DBD8A700203220 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		7BBA57E529DC1A5B00203220 /* ExamPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamPostModel.swift; sourceTree = "<group>"; };
@@ -229,6 +237,7 @@
 		103F556B29D49F6200212C6D /* DrugExam 2020 */ = {
 			isa = PBXGroup;
 			children = (
+				7B6E04B929EE4C040056D8FA /* CommentsView.swift */,
 				7B3F4F9629ED4835006EB9A2 /* DrugExam-2020-Info.plist */,
 				7BDE281229E4070A0053DFB0 /* CountDown */,
 				7B8757BC29D835E000F87C04 /* Extensions */,
@@ -289,6 +298,7 @@
 				7B693A8A29E13EB900DF5D52 /* Animation */,
 				10153C2B29D6DD12000EEB8D /* Dropdown */,
 				1089A5C829D58B11002CD74F /* InputFields */,
+				7B6E04B429EE4BA40056D8FA /* AlertsAndWarnings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,8 +372,8 @@
 			children = (
 				7B66184F29D938B50032A0AF /* LogInAuth.swift */,
 				7B66186329D95C320032A0AF /* UpcomingExamInfo.swift */,
-				7B66186C29D96B5C0032A0AF /* ExamResultInfo.swift */,
 				7B2498EC29DA7E0E00CDD93E /* QuestionInfo.swift */,
+				7B66186C29D96B5C0032A0AF /* ExamResultInfo.swift */,
 				7BBA57E929DC1AE700203220 /* ExamPost.swift */,
 			);
 			path = Services;
@@ -423,6 +433,14 @@
 				7B693A8B29E13EE600DF5D52 /* LoadingAnimationCircle.swift */,
 			);
 			path = Animation;
+			sourceTree = "<group>";
+		};
+		7B6E04B429EE4BA40056D8FA /* AlertsAndWarnings */ = {
+			isa = PBXGroup;
+			children = (
+				7B6E04B529EE4BE00056D8FA /* AlertAndWarningView.swift */,
+			);
+			path = AlertsAndWarnings;
 			sourceTree = "<group>";
 		};
 		7B8757BC29D835E000F87C04 /* Extensions */ = {
@@ -628,10 +646,12 @@
 				7B66184829D92C690032A0AF /* LogInRes.swift in Sources */,
 				7B2498F629DA828500CDD93E /* QuestionData.swift in Sources */,
 				7B66187229D96CD60032A0AF /* ExamResult.swift in Sources */,
+				7B6E04B629EE4BE00056D8FA /* AlertAndWarningView.swift in Sources */,
 				10153C2D29D6DD3E000EEB8D /* DropdownView.swift in Sources */,
 				7B2498F229DA7F2F00CDD93E /* Question.swift in Sources */,
 				1089A5CE29D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F556D29D49F6200212C6D /* DrugExam_2020App.swift in Sources */,
+				7B6E04BA29EE4C040056D8FA /* CommentsView.swift in Sources */,
 				7B693A8C29E13EE600DF5D52 /* LoadingAnimationCircle.swift in Sources */,
 				7B3FBE1329EAA966002E175B /* DateFormatter.swift in Sources */,
 				7B66186D29D96B5C0032A0AF /* ExamResultInfo.swift in Sources */,
@@ -648,6 +668,7 @@
 			files = (
 				7B3FBE1429EAA966002E175B /* DateFormatter.swift in Sources */,
 				7B66185E29D951FD0032A0AF /* ToastNotification.swift in Sources */,
+				7B6E04BB29EE4C040056D8FA /* CommentsView.swift in Sources */,
 				10153C2929D69B7F000EEB8D /* ExamView.swift in Sources */,
 				7BBA57EF29DC20D400203220 /* ExamResModel.swift in Sources */,
 				7B693A8D29E13EE600DF5D52 /* LoadingAnimationCircle.swift in Sources */,
@@ -678,6 +699,7 @@
 				7B66187329D96CD60032A0AF /* ExamResult.swift in Sources */,
 				1089A5CF29D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				7B66186A29D95D880032A0AF /* UpcomingExam.swift in Sources */,
+				7B6E04B729EE4BE00056D8FA /* AlertAndWarningView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,10 +729,12 @@
 				7B66184A29D92C690032A0AF /* LogInRes.swift in Sources */,
 				7B2498F829DA828500CDD93E /* QuestionData.swift in Sources */,
 				7B66187429D96CD60032A0AF /* ExamResult.swift in Sources */,
+				7B6E04B829EE4BE00056D8FA /* AlertAndWarningView.swift in Sources */,
 				10153C2F29D6DD3E000EEB8D /* DropdownView.swift in Sources */,
 				7B2498F429DA7F2F00CDD93E /* Question.swift in Sources */,
 				1089A5D029D58B11002CD74F /* FloatingTextField.swift in Sources */,
 				103F558A29D49F6300212C6D /* DrugExam_2020UITestsLaunchTests.swift in Sources */,
+				7B6E04BC29EE4C040056D8FA /* CommentsView.swift in Sources */,
 				7B693A8E29E13EE600DF5D52 /* LoadingAnimationCircle.swift in Sources */,
 				7B3FBE1529EAA966002E175B /* DateFormatter.swift in Sources */,
 				7B66186F29D96B5C0032A0AF /* ExamResultInfo.swift in Sources */,
