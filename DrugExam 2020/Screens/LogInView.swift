@@ -15,6 +15,7 @@ struct LogInView: View {
     @State private var password = ""
     @State private var goDashboard: Bool = false
     @State private var isNeedUpdate: Bool = false
+    @State private var isUnderMaintanance: Bool = false
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @FocusState private var isFocused: Bool
     
@@ -87,7 +88,13 @@ struct LogInView: View {
         .alert("It is recommended to update the app for a better experience.", isPresented: $isNeedUpdate) {
             Button("Update Now") {
                 // Go to App Store
-                openURL(URL(string: "https://apps.apple.com/us/app/thp-online/id6443422997")!)
+                openURL(URL(string: "https://apps.apple.com/us/app/drugexam-2020/id6447454221")!)
+                print("Tapped Ok to new UPDATE available") }
+        }
+        .alert("Server is under maintanance. Please try again later.", isPresented: $isUnderMaintanance) {
+            Button("Ok") {
+                // Go to App Store
+                self.isUnderMaintanance = false
                 print("Tapped Ok to new UPDATE available") }
         }
     }
@@ -120,13 +127,22 @@ struct LogInView: View {
                             // Navigating to Dashboard
                             goDashboard = true
                         } else {
+                            
+                            let localAppVer = Int(logIn.appVersionName?.replacingOccurrences(of: ".", with: "", range: nil) ?? "1") ?? 1
+                            let serverAppVer = Int(String(describing: response?.objResponse?.serverAppVersionCode).replacingOccurrences(of: ".", with: "", range: nil)) ?? 1
+                            
                             if response?.objResponse?.examFlag != 1 {
                                 isToast = true
                                 msg = "User is not eligible for exam"
                                 print("Cannot sit for exam")
                             } else if response?.objResponse?.needUpdate == 1 {
-                                self.isNeedUpdate = true
-                                print("Need to update DrugExam 2020 App")
+                                if localAppVer < serverAppVer {
+                                    self.isNeedUpdate = true
+                                    print("Need to update DrugExam 2020 App")
+                                } else if localAppVer > serverAppVer {
+                                    self.isUnderMaintanance = true
+                                    print("Server is under maintanance. Please wait or try again later")
+                                }
                             }
                         }
                     } else {
